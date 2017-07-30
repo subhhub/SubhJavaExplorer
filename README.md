@@ -1,2 +1,0 @@
-# SubhJavaExplorer
-Shunya-The Infinity
