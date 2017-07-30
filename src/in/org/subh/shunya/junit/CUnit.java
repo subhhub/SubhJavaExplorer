@@ -8,7 +8,7 @@ public class CUnit {
 
 	@Test
 	public void testAdd() {
-		System.out.println("@Test - test_method_1");
+//		System.out.println("@Test - test_method_1");
         
         int a = Calculator.add(10, 20);
         assertEquals(30, a);
