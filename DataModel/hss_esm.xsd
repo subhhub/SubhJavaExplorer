@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- HSS 5.0 FD1 MODULE ESM -->
+<!-- 2010-08-18 -->
+<!-- R0A01 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" blockDefault="restriction">
+	<xs:element name="HSS-EsmSubscription" type="tHSS-EsmSubscription"/>
+	<xs:complexType name="tHSS-EsmSubscription">
+		<xs:sequence>
+			<xs:element name="HSS-EsmSubscriptionId" type="xs:string"/>
+			<xs:element name="HSS-EsmUser" type="tHSS-EsmUser"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tHSS-EsmUser">
+		<xs:sequence>
+			<xs:element name="HSS-EsmImsi" type="xs:string"/>
+			<xs:element name="HSS-EsmUserProfileId" type="xs:string" minOccurs="0"/>
+			<xs:element name="HSS-EsmMmeAddress" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">read-only</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HSS-EsmMsisdn" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[0-9]{5,15}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="HSS-EsmLocationState" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">read-only</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="PURGED"/>
+						<xs:enumeration value="UNKNOWN"/>
+						<xs:enumeration value="LOCATED"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="HSS-EsmRoamingAllowed" type="tboolean" minOccurs="0"/>
+			<xs:element name="HSS-EsmRoamingRestriction" type="tboolean" minOccurs="0"/>
+			<xs:element name="HSS-EsmOdb" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="NONE"/>
+						<xs:enumeration value="ODB-ALL"/>
+						<xs:enumeration value="ODB-HPLMN-APN"/>
+						<xs:enumeration value="ODB-VPLMN-APN"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+            <xs:element name="HSS-EsmUeSrVccCap" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="UNKNOWN"/>
+                        <xs:enumeration value="UE-SRVCC-NOT-SUPPORTED"/>
+                        <xs:enumeration value="UE-SRVCC-SUPPORTED"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+			<xs:element name="HSS-EsmIndividualApnOiReplacement" type="xs:string" minOccurs="0"/>
+			<xs:element name="HSS-EsmLastUpdateLocationDate" type="xs:string" minOccurs="0"/>
+			<xs:element name="HSS-EsmIndividualDefaultContextId" type="xs:unsignedInt" minOccurs="0"/>
+			<xs:element name="HSS-EsmIndividualContextIdList" type="xs:unsignedInt" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="HSS-EsmIndividualSubscribedChargingChars" type="xs:unsignedShort" minOccurs="0"/>
+			<xs:element name="HSS-EsmIndividualAmbrMaxUl" type="xs:unsignedInt" minOccurs="0"/>
+			<xs:element name="HSS-EsmIndividualAmbrMaxDl" type="xs:unsignedInt" minOccurs="0"/>
+			<xs:element name="HSS-EsmIndividualRatFreqSelPriorId" type="xs:unsignedInt" minOccurs="0"/>
+			<xs:element name="HSS-EsmAaaAddress" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+            <xs:element name="HSS-EsmStnSr" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[0-9]{5,15}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="HSS-EsmAccessRestrictions" type="xs:unsignedInt" minOccurs="0"/>
+			<xs:element name="HSS-EsmAutomaticProvisioned" type="tboolean" minOccurs="0"/>
+			<xs:element name="HSS-EsmImeiSv" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[0-9]{16}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="HSS-EsmAaaRegistrationState" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						  <xs:enumeration value="registered" />
+						  <xs:enumeration value="not_registered" />
+						  <xs:enumeration value="aaa_asigned" />
+      				</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="HSS-EsmUserIpV4Address" minOccurs="0" maxOccurs="unbounded">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="HSS-EsmUserIpV6Address" minOccurs="0" maxOccurs="unbounded">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="255" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="HSS-EsmTenantId" minOccurs="0">
+				<xs:simpleType>
+					 <xs:restriction base="xs:integer">
+						  <xs:minInclusive value="1"/>
+						  <xs:maxInclusive value="100"/>
+					 </xs:restriction>
+				</xs:simpleType>			
+			</xs:element>
+			<xs:element name="HSS-EsmDynPdnGwInfo" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="tboolean">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="TRUE"/>
+			<xs:enumeration value="FALSE"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

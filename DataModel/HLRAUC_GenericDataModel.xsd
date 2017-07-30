@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by ecefjga (EMBRACE) -->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/Ericsson12A" targetNamespace="http://www.example.org/Ericsson12A" elementFormDefault="qualified">
+	<element name="root" type="tns:CUDBType"/>
+	<complexType name="SubscriberType">
+		<sequence>
+			<element name="AUC_DATA" type="tns:AUCType" minOccurs="0"/>
+			<element name="HLR_DATA" type="tns:HLRType" minOccurs="0"/>
+		</sequence>
+		<attribute name="IMSI" use="required">
+			<simpleType>
+				<restriction base="string">
+					<minLength value="5"/>
+					<maxLength value="15"/>
+				</restriction>
+			</simpleType>
+		</attribute>
+	</complexType>
+	<complexType name="AUCType">
+		<sequence>
+			<element name="IMSI">
+				<simpleType>
+					<restriction base="string">
+						<minLength value="6"/>
+						<maxLength value="15"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="AKATYPE">
+				<simpleType>
+					<restriction base="int">
+						<minInclusive value="0"/>
+						<maxInclusive value="1"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="EKI">
+				<simpleType>
+					<restriction base="string">
+						<length value="16"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="KIND">
+				<simpleType>
+					<restriction base="int">
+						<minInclusive value="0"/>
+						<maxInclusive value="511"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="A3A8IND" minOccurs="0">
+				<simpleType>
+					<restriction base="int">
+						<minInclusive value="0"/>
+						<maxInclusive value="15"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="FSETIND" minOccurs="0">
+				<simpleType>
+					<restriction base="int">
+						<minInclusive value="0"/>
+						<maxInclusive value="15"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="A4IND">
+				<simpleType>
+					<restriction base="int">
+						<maxInclusive value="7"/>
+						<minInclusive value="0"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="AMFFLAG" type="boolean" minOccurs="0">
+				<annotation>
+					<documentation>remove????</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="HLRType">
+		<sequence>
+			<element name="Identity" type="tns:IdentityType"/>
+			<element name="SUD" type="tns:SUDType" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="SS" type="tns:SSType" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="GPRS" type="tns:GPRSType" minOccurs="0" maxOccurs="10"/>
+			<element name="SMSWaitingList" type="tns:SMSWaitingListType" minOccurs="0" maxOccurs="32"/>
+		</sequence>
+		<attribute name="MSISDN" use="required">
+			<simpleType>
+				<restriction base="string">
+					<minLength value="6"/>
+					<maxLength value="15"/>
+				</restriction>
+			</simpleType>
+		</attribute>
+	</complexType>
+	<complexType name="IdentityType">
+		<sequence>
+			<element name="MSISDN">
+				<simpleType>
+					<restriction base="string">
+						<minLength value="5"/>
+						<maxLength value="15"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="AddMSISDN" type="tns:AMSISDNType" minOccurs="0" maxOccurs="15"/>
+			<element name="IMEISV" minOccurs="0">
+				<simpleType>
+					<restriction base="string">
+						<minLength value="0"/>
+						<maxLength value="16"/>
+					</restriction>
+				</simpleType>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="SUDType">
+		<sequence>
+			<element name="SUDname">
+				<simpleType>
+					<restriction base="string">
+						<enumeration value="ACC"/>
+						<enumeration value="ACR"/>
+						<enumeration value="AOC"/>
+						<enumeration value="ARD"/>
+						<enumeration value="ASL"/>
+						<enumeration value="BAIC"/>
+						<enumeration value="BAOC"/>
+						<enumeration value="BICRO"/>
+						<enumeration value="BOIC"/>
+						<enumeration value="BOIEXH"/>
+						<enumeration value="BS21"/>
+						<enumeration value="BS22"/>
+						<enumeration value="BS23"/>
+						<enumeration value="BS24"/>
+						<enumeration value="BS25"/>
+						<enumeration value="BS26"/>
+						<enumeration value="BS2F"/>
+						<enumeration value="BS2G"/>
+						<enumeration value="BS31"/>
+						<enumeration value="BS32"/>
+						<enumeration value="BS33"/>
+						<enumeration value="BS34"/>
+						<enumeration value="BS3F"/>
+						<enumeration value="BS3G"/>
+						<enumeration value="BSL"/>
+						<enumeration value="CAPL"/>
+						<enumeration value="CAT"/>
+						<enumeration value="CAW"/>
+						<enumeration value="CFB"/>
+						<enumeration value="CFNRC"/>
+						<enumeration value="CFNRY"/>
+						<enumeration value="CFU"/>
+						<enumeration value="CLIP"/>
+						<enumeration value="CLIR"/>
+						<enumeration value="COLP"/>
+						<enumeration value="COLR"/>
+						<enumeration value="CREL"/>
+						<enumeration value="CSP"/>
+						<enumeration value="CUG"/>
+						<enumeration value="CUNRL"/>
+						<enumeration value="DBSG"/>
+						<enumeration value="DCF"/>
+						<enumeration value="DEMLPP"/>
+						<enumeration value="ECT"/>
+						<enumeration value="EMLPP"/>
+						<enumeration value="GRDP"/>
+						<enumeration value="HOLD"/>
+						<enumeration value="ICI"/>
+						<enumeration value="IST"/>
+						<enumeration value="ISTCSO"/>
+						<enumeration value="ISTGSO"/>
+						<enumeration value="ISTVSO"/>
+						<enumeration value="LMU"/>
+						<enumeration value="MCA"/>
+						<enumeration value="MEMLPP"/>
+						<enumeration value="MMINT"/>
+						<enumeration value="MPID"/>
+						<enumeration value="MPTY"/>
+						<enumeration value="MRDMCH"/>
+						<enumeration value="MRDPID"/>
+						<enumeration value="MSIM"/>
+						<enumeration value="NAM"/>
+						<enumeration value="OBA"/>
+						<enumeration value="OBCC"/>
+						<enumeration value="OBCT"/>
+						<enumeration value="OBDCT"/>
+						<enumeration value="OBI"/>
+						<enumeration value="OBMCT"/>
+						<enumeration value="OBO"/>
+						<enumeration value="OBOPRE"/>
+						<enumeration value="OBOPRI"/>
+						<enumeration value="OBP"/>
+						<enumeration value="OBR"/>
+						<enumeration value="OBRF"/>
+						<enumeration value="OBSSM"/>
+						<enumeration value="OBZI"/>
+						<enumeration value="OBZO"/>
+						<enumeration value="OFA"/>
+						<enumeration value="OICK"/>
+						<enumeration value="OIN"/>
+						<enumeration value="ORA"/>
+						<enumeration value="OSB1"/>
+						<enumeration value="OSB2"/>
+						<enumeration value="OSB3"/>
+						<enumeration value="OSB4"/>
+						<enumeration value="PDPCP"/>
+						<enumeration value="PICI"/>
+						<enumeration value="PICI2"/>
+						<enumeration value="PICI3"/>
+						<enumeration value="PLMNO"/>
+						<enumeration value="PRBT"/>
+						<enumeration value="PWD"/>
+						<enumeration value="RDP"/>
+						<enumeration value="REGSER"/>
+						<enumeration value="RSA"/>
+						<enumeration value="RTCA"/>
+						<enumeration value="SCHAR"/>
+						<enumeration value="SMSPAM"/>
+						<enumeration value="SERVTL"/>
+						<enumeration value="SOCB"/>
+						<enumeration value="SOCFB"/>
+						<enumeration value="SOCFRC"/>
+						<enumeration value="SOCFRY"/>
+						<enumeration value="SOCFU"/>
+						<enumeration value="SOCLIP"/>
+						<enumeration value="SOCLIR"/>
+						<enumeration value="SOCOLP"/>
+						<enumeration value="SODCF"/>
+						<enumeration value="SOPLCS"/>
+						<enumeration value="SOSDCF"/>
+						<enumeration value="SPN"/>
+						<enumeration value="STE"/>
+						<enumeration value="STYPE"/>
+						<enumeration value="TICK"/>
+						<enumeration value="TIN"/>
+						<enumeration value="TRC"/>
+						<enumeration value="TS11"/>
+						<enumeration value="TS21"/>
+						<enumeration value="TS22"/>
+						<enumeration value="TS61"/>
+						<enumeration value="TS62"/>
+						<enumeration value="TSD1"/>
+						<enumeration value="TSMO"/>
+						<enumeration value="TTP"/>
+						<enumeration value="UNIV"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="Value1" type="int"/>
+			<element name="Value2" type="int" minOccurs="0"/>
+		</sequence>
+	</complexType>
+	<complexType name="AMSISDNType">
+		<sequence>
+			<element name="AMSISDN">
+				<simpleType>
+					<restriction base="string">
+						<minLength value="6"/>
+						<maxLength value="15"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="BC" type="int"/>
+		</sequence>
+	</complexType>
+	<complexType name="SSType">
+		<sequence>
+			<element name="SSName">
+				<simpleType>
+					<restriction base="string">
+						<enumeration value="BAIC"/>
+						<enumeration value="BAOC"/>
+						<enumeration value="BICRO"/>
+						<enumeration value="BOIC"/>
+						<enumeration value="BOIEXH"/>
+						<enumeration value="CAW"/>
+						<enumeration value="CFB"/>
+						<enumeration value="CFNRC"/>
+						<enumeration value="CFNRY"/>
+						<enumeration value="CFU"/>
+						<enumeration value="DCF"/>
+						<enumeration value="SPN"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="Status">
+				<simpleType>
+					<restriction base="string">
+						<enumeration value="Provided"/>
+						<enumeration value="Registered"/>
+						<enumeration value="ActiveOperative"/>
+						<enumeration value="ActiveQuiescent"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="BSG" maxOccurs="unbounded">
+				<simpleType>
+					<restriction base="string">
+						<minLength value="1"/>
+						<maxLength value="15"/>
+						<enumeration value="BS30"/>
+						<enumeration value="BS20"/>
+						<enumeration value="TSD0"/>
+						<enumeration value="TS60"/>
+						<enumeration value="TS20"/>
+						<enumeration value="TS10"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="FNUM" minOccurs="0">
+				<simpleType>
+					<restriction base="string">
+						<minLength value="1"/>
+						<maxLength value="15"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="TIME" minOccurs="0">
+				<simpleType>
+					<restriction base="int">
+						<enumeration value="5"/>
+						<enumeration value="10"/>
+						<enumeration value="15"/>
+						<enumeration value="20"/>
+						<enumeration value="25"/>
+						<enumeration value="30"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="FNUM_NA" minOccurs="0">
+				<simpleType>
+					<restriction base="int">
+						<minInclusive value="0"/>
+						<maxInclusive value="2"/>
+					</restriction>
+				</simpleType>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="GPRSType">
+		<sequence>
+			<element name="PDPID">
+				<simpleType>
+					<restriction base="int">
+						<maxInclusive value="10"/>
+						<minInclusive value="0"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="APNID" type="int"/>
+			<element name="EQOSID" type="int"/>
+			<element name="PDPADD" type="hexBinary" minOccurs="0"/>
+			<element name="PDPCH" type="tns:PDPCHType" minOccurs="0"/>
+			<element name="PDPTY">
+				<simpleType>
+					<restriction base="int">
+						<minInclusive value="0"/>
+						<maxInclusive value="2"/>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="VPAA" type="boolean"/>
+		</sequence>
+	</complexType>
+	<complexType name="PDPCHType">
+		<sequence>
+			<element name="Value1" type="int"/>
+			<element name="Value2" type="int" minOccurs="0"/>
+		</sequence>
+	</complexType>
+	<complexType name="CUDBType">
+		<sequence>
+			<element name="Subscriber" type="tns:SubscriberType" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+	<attribute name="NewAttribute" type="string"/>
+	<complexType name="SMSWaitingListType">
+		<sequence>
+			<element name="SMSADDList" type="tns:SMSListType" maxOccurs="32"/>
+			<element name="MCEF" type="boolean" minOccurs="0"/>
+		</sequence>
+	</complexType>
+	<complexType name="SMSListType">
+		<sequence>
+			<element name="SMSCADD" type="string"/>
+			<element name="SMSCEXPDATE" type="date"/>
+		</sequence>
+	</complexType>
+</schema>
