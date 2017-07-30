@@ -10,8 +10,7 @@ public class CUnit {
 	public void testAdd() {
 		System.out.println("@Test - test_method_1");
         
-        Calculator cl = new Calculator();
-        int a = cl.add(10, 20);
+        int a = Calculator.add(10, 20);
         assertEquals(30, a);
 	}
 
