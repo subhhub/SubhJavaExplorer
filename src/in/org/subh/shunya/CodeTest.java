@@ -58,6 +58,9 @@ public class CodeTest {
 //		String mrg = mergeStringFunc("ORANGE", "pineapple");
 //		String mrg = mergeStringFunc("ab", "zsd");
 //		System.out.println("merge "+mrg);
+		
+//		String strN = "null";
+//		System.out.println("isNumeric "+isNumeric(str));
 }
 	
 		public static long fib(int N) {
@@ -84,6 +87,16 @@ public class CodeTest {
 	        System.out.println(result);
 	        
 			return result;
+		}
+		
+		public static boolean isNumeric(String str){  
+			try {  
+				double d = Double.parseDouble(str);  
+			}  
+			catch(NumberFormatException nfe) {  
+				return false;  
+			}  
+			return true;  
 		}
 	
 	public static String mergeStringFunc(String a, String b) {
