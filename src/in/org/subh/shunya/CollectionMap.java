@@ -39,6 +39,9 @@ public class CollectionMap {
 		hm.put(102,null);  
 		hm.put(102,"Rahul2");    		//duplicate key not allowed
 //		hm.put(null,"Rahul420");   
+		
+		hm.remove(108);
+		
 //		System.out.println(hm.size());		//size 4 don't count null key
 
 		System.out.println(hm.size());
@@ -70,13 +73,15 @@ public class CollectionMap {
 		      System.out.println("Value = " + ky.next());
 		  }*/
 		
-		/*Map<String, String> map = new HashMap<String, String>();
-		map.put("1", "Jan");
-		map.put("2", "Feb");
-		map.put("3", "Mar");
+		/*Map<Integer, String> map = new HashMap<>();
+		map.put(1, "Jan");
+		map.put(2, "Feb");
+		map.put(3, "Mar");
 		//loop a Map
-		for (Map.Entry<String, String> entry : map.entrySet()) {
-			System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue());
+		for (Map.Entry<Integer, String> entry : map.entrySet()) {
+			Integer ky = entry.getKey();
+			String vl = entry.getValue();
+//			System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue());
 		}*/
 		  
 //		  convertMapToArrayList();
