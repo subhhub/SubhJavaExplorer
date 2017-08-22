@@ -51,7 +51,7 @@ public class CollectionHashMapCustomeKey {
 		AccountMan a2 = new AccountMan(2);
 		a2.setHolderName("A_TWO");
 
-		System.out.println(a1.hashCode()+ " "+a2.hashCode());	
+		System.out.println(a1.hashCode()+ " "+a2.hashCode() + " "+ a1.equals(a2));	
 		
 		// Put mutable key and value in map
 		map.put(a1, a1.getHolderName());
@@ -61,7 +61,7 @@ public class CollectionHashMapCustomeKey {
 		a1.setHolderName("Defaulter");
 		a2.setHolderName("Bankrupt");
 
-		System.out.println(a1.hashCode()+ " "+a2.hashCode());	
+		System.out.println(map.size()+ " "+a1.hashCode()+ " "+a2.hashCode());	
 		
 		// Success !! We are able to get back the values
 		System.out.println(map.get(a1)); // Prints A_ONE
@@ -103,7 +103,7 @@ class AccountMan {
 	
 	@Override
 	public int hashCode() {
-		return accountNumber;
+		return 1;
 	}
 	
 	// Depends only on account number
@@ -119,7 +119,6 @@ class AccountMan {
 	}*/
 	
 	
-	
 	/*@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -130,7 +129,8 @@ class AccountMan {
 		if (accountNumber == other.accountNumber)
 			return true;
 		
-		return false;
+//		return false;
+		return true;
 	}*/
 	
 	// Compare only account numbers
