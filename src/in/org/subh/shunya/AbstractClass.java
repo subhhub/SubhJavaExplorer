@@ -39,6 +39,9 @@ abstract class AbsClassE{
 	
 //	static abstract void AbsClassE();   //Compile time error, abstract method can not be static. (Only public and protected)
 	
+	/*abstract AbsClassE(){			//ompile time error
+	}
+	*/
 	public AbsClassE() {
 	}
 }
