@@ -1,107 +1,74 @@
 package in.org.subh.shunya;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
+/**
+ * @author esubkew
+ * 
+ * Facade pattern hides the complexities of the system and provides 
+ * an interface to the client using which the client can access the system. 
+ * This type of design pattern comes under structural pattern as this pattern adds 
+ * an interface to existing system to hide its complexities.
+ *
+ */
 public class DesignPatternFacadeClient {
-	private static int choice;
 
-	public static void main(String args[]) throws NumberFormatException, IOException {
-		do {
-			System.out.print("========= Mobile Shop ============ \n");
-			System.out.print("            1. IPHONE.             \n");
-			System.out.print("            2. SAMSUNG.            \n");
-			System.out.print("            3. BLACKBERRY.         \n");
-			System.out.print("            4. Exit.               \n");
-			System.out.print("Enter your choice: ");
+	public static void main(String args[]) {
+		ShapeMaker shapeMaker = new ShapeMaker();
 
-			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-			choice = Integer.parseInt(br.readLine());
-			ShopKeeper sk = new ShopKeeper();
-
-			switch (choice) {
-			case 1: {
-				sk.iphoneSale();
-			}
-				break;
-			case 2: {
-				sk.samsungSale();
-			}
-				break;
-			case 3: {
-				sk.blackberrySale();
-			}
-				break;
-			default: {
-				System.out.println("Nothing You purchased");
-			}
-				return;
-			}
-
-		} while (choice != 4);
+		shapeMaker.drawCircle();
+		shapeMaker.drawRectangle();
+		shapeMaker.drawSquare();
 	}
 }
 
-interface MobileShop {
-	public void modelNo();
-
-	public void price();
+interface Shape {
+	void draw();
 }
 
-class Iphone implements MobileShop {
-	public void modelNo() {
-		System.out.println(" Iphone 6 ");
-	}
+class Rectangle implements Shape {
 
-	public void price() {
-		System.out.println(" Rs 65000.00 ");
+	@Override
+	public void draw() {
+		System.out.println("Rectangle::draw()");
 	}
 }
 
-class Samsung implements MobileShop {
-	public void modelNo() {
-		System.out.println(" Samsung galaxy tab 3 ");
-	}
+class Square implements Shape {
 
-	public void price() {
-		System.out.println(" Rs 45000.00 ");
+	@Override
+	public void draw() {
+		System.out.println("Square::draw()");
 	}
 }
 
-class Blackberry implements MobileShop {
-	public void modelNo() {
-		System.out.println(" Blackberry Z10 ");
-	}
+class Circle implements Shape {
 
-	public void price() {
-		System.out.println(" Rs 55000.00 ");
+	@Override
+	public void draw() {
+		System.out.println("Circle::draw()");
 	}
 }
 
-class ShopKeeper {
-	private MobileShop iphone;
-	private MobileShop samsung;
-	private MobileShop blackberry;
+class ShapeMaker {
+	private Shape circle;
+	private Shape rectangle;
+	private Shape square;
 
-	public ShopKeeper() {
-		iphone = new Iphone();
-		samsung = new Samsung();
-		blackberry = new Blackberry();
+	public ShapeMaker() {
+		circle = new Circle();
+		rectangle = new Rectangle();
+		square = new Square();
 	}
 
-	public void iphoneSale() {
-		iphone.modelNo();
-		iphone.price();
+	public void drawCircle() {
+		circle.draw();
 	}
 
-	public void samsungSale() {
-		samsung.modelNo();
-		samsung.price();
+	public void drawRectangle() {
+		rectangle.draw();
 	}
 
-	public void blackberrySale() {
-		blackberry.modelNo();
-		blackberry.price();
+	public void drawSquare() {
+		square.draw();
 	}
 }
