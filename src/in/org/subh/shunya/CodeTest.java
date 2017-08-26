@@ -1,5 +1,6 @@
 package in.org.subh.shunya;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -39,7 +40,7 @@ public class CodeTest {
 //		StringContainsDigits(str);
 //		arrayDuplicateValue();
 //		findCommonElementsThreeArrays();
-//		mergeSortedArray();
+		mergeSortedArray();
 //		reverseArray();
 		
 //		System.out.println("Hello Code");
@@ -63,41 +64,68 @@ public class CodeTest {
 //		System.out.println("isNumeric "+isNumeric(str));
 }
 	
-		public static long fib(int N) {
-	
-			long result = 0;
-	        int[] array = new int[N];
-	        
-	        if(N>1){
-	        	array[0] = 1;
-	        	array[1] = 2;
-	        }	
-	        for (int i = 2; i < N-1; i++) {
-	            array[i] = array[i - 2] + array[i - 1];
-	        }
-	
-	        for (int even: array) {
-	            if (even % 2 == 0) {
-	            	
-	            	System.out.println("even "+even);
-	            	if(even<N)
-	            		result += even;
+	public static void removeDuplicateFromList(){
+		ArrayList<Object> al = new ArrayList<Object>();
+	    
+	    al.add("java");
+	    al.add('a');
+	    al.add('b');
+	    al.add('a');
+	    al.add("java");
+	    al.add(10.3);
+	    al.add('c');
+	    al.add(14);
+	    al.add("java");
+	    al.add(12);
+	    
+	    System.out.println("Before Remove Duplicate elements:"+al);
+	 
+	    for(int i=0;i<al.size();i++){
+	    	for(int j=i+1;j<al.size();j++){
+	    		if(al.get(i).equals(al.get(j))){
+	    			al.remove(j);
+	                j--;
 	            }
-	        }
-	        System.out.println(result);
-	        
-			return result;
-		}
+	    	}
+	    }
+	 
+	    System.out.println("After Removing duplicate elements:"+al);
+	}
+	
+	public static long fib(int N) {
+		long result = 0;
+        int[] array = new int[N];
+        
+        if(N>1){
+        	array[0] = 1;
+        	array[1] = 2;
+        }	
+        for (int i = 2; i < N-1; i++) {
+            array[i] = array[i - 2] + array[i - 1];
+        }
+
+        for (int even: array) {
+            if (even % 2 == 0) {
+            	
+            	System.out.println("even "+even);
+            	if(even<N)
+            		result += even;
+            }
+        }
+        System.out.println(result);
+        
+		return result;
+	}
 		
-		public static boolean isNumeric(String str){  
-			try {  
-				double d = Double.parseDouble(str);  
-			}  
-			catch(NumberFormatException nfe) {  
-				return false;  
-			}  
-			return true;  
-		}
+	public static boolean isNumeric(String str){  
+		try {  
+			double d = Double.parseDouble(str);  
+		}  
+		catch(NumberFormatException nfe) {  
+			return false;  
+		}  
+		return true;  
+	}
 	
 	public static String mergeStringFunc(String a, String b) {
 	    int length1 = a.length();
@@ -173,19 +201,19 @@ public class CodeTest {
 		for (int l = 0; l < input1.length; l++) {
 			for (int l2 = 0; l2 < input2.length; l2++) {
 				if(input1[l]>input2[l2]){
-//					input3[l] = input2[l2];
-					System.out.println(input2[l2]);
+					input3[l] = input2[l2];
+//					System.out.println(input2[l2]);
 				}
 				else{
-//					input3[l] = input2[l];
-					System.out.println(input1[l]);
+					input3[l] = input2[l];
+//					System.out.println(input1[l]);
 					break;
 				}
 			}
 		}
-		/*for (int k = 0; k < ln3; k++) {
+		for (int k = 0; k < ln3; k++) {
 			System.out.println(input3[k]);
-		}*/
+		}
 	}
 
 	private static void findCommonElementsThreeArrays() {

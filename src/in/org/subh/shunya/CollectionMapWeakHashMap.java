@@ -9,6 +9,34 @@ public class CollectionMapWeakHashMap {
 	public static void main(String[] args) {
 		System.out.println("Collection Map WeakHashMap Main");
 
+		demo1();
+		demo2();
+	}
+	
+	static void demo2(){
+		Map hashMap= new HashMap();
+        Map weakHashMap = new WeakHashMap();
+
+        String keyHashMap = new String("keyHashMap");
+        String keyWeakHashMap = new String("keyWeakHashMap");
+        String keyWeakHashMap1 = new String("keyWeakHashMap1");
+
+        hashMap.put(keyHashMap, "helloHash");
+        weakHashMap.put(keyWeakHashMap, "helloWeakHash");
+        weakHashMap.put(keyWeakHashMap, "helloWeakHash");
+        System.out.println("Before: hash map value:"+hashMap.get("keyHashMap")+" and weak hash map value:"+weakHashMap.get("keyWeakHashMap"));
+
+        keyHashMap = null;
+        keyWeakHashMap = null;
+
+        System.gc();  
+
+        System.out.println("After: hash map value:"+hashMap.get("keyHashMap")+" and weak hash map value:"+weakHashMap.get("keyWeakHashMap"));
+        System.out.println("After: Weak hash map value:"+weakHashMap.get("keyWeakHashMap1"));
+	}
+	
+	static void demo1(){
+		
 		String ky = "k9";
 //		Map mp = new HashMap();		//sort lived object
 		Map mp = new WeakHashMap();		//sort lived object

@@ -22,40 +22,10 @@ public class CodeTest2 extends Thread {
 		Object type = "PDPCHCP";
 		gprsConversion(type, value);*/
 		
-		String str = "asdwefasw42dasfd0";
-
-		Matcher m = Pattern.compile("[0-9]+$").matcher(str);
-		String result  = m.find()?m.group():"";
-	
-		System.out.println(result);
 		
-		Map mp = new HashMap();
-	}
-	
-
-	private static void gprsConversion(Object typeField, String value) {
 		
-		String rgx = "([0-9]){1}([-])([0-9]{1})";	
-		
-		if(value!=null && Pattern.matches(rgx, value)){
-			System.out.println("Matched");
-			
-			String nv[] = value.split("-");
-			String nvv = null;
-			if(!"0".equals(nv[1])){
-				nvv = nv[1]+nv[0]+"00";
-			}
-			else
-				nvv = nv[0]+"000";
-			
-			System.out.println("nv "+nvv);
-		}
-		else{
-			System.out.println("Not Matched");
-		}
 	}
 }
-
 class TC1 extends Thread {
 	Calculator c;
 

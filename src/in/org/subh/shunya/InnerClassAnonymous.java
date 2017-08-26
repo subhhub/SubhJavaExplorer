@@ -12,13 +12,13 @@ public class InnerClassAnonymous {
 	public static void main(String[] args) {
 		System.out.println("###########Anonymous Inner Clases##########");
 		
-		/*Popcorn pc = new Popcorn(){		// Anonymous inner class that extends Popcorn class
+		Popcorn pc = new Popcorn(){		// Anonymous inner class that extends Popcorn class
 			public void commonTaste(){
 				System.out.println("Common taste again anonymous ");
 			}
-		};*/
-//		pc.commonTaste();
-//		pc.tasteSweet();
+		};
+		pc.commonTaste();
+		pc.tasteSweet();
 		
 //		Popcorn pc1 = new Popcorn();
 //		pc1.commonTaste();
@@ -58,13 +58,18 @@ public class InnerClassAnonymous {
 class Popcorn{
 	
 	public void commonTaste(){
-		System.out.println("Popcorn taste sweet");
+		System.out.println("Popcorn common taste");
 	}
 	public void tasteSweet(){
 		System.out.println("Popcorn taste sweet ");
 	}
 }
 class SubPopcorn extends Popcorn{
+	
+	/*SubPopcorn(String s) {
+		// TODO Auto-generated constructor stub
+	}*/
+	
 	public void commonTaste(){
 		System.out.println("Common taste again in child");
 	}

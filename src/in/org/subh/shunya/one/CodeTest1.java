@@ -1,7 +1,9 @@
 package in.org.subh.shunya.one;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.StringTokenizer;
-import java.util.regex.Pattern;
+import java.util.WeakHashMap;
 
 public class CodeTest1 {
 	
@@ -18,58 +20,64 @@ public class CodeTest1 {
 	
 	public static void main(String[] args) {
 		
-		PCO pc = new PCO();
+		int p = 0;
+		int n = 1;
+		int c = 0;
 		
-		/*Thread t1 = new Thread( new TP(pc));
-		Thread t2 = new Thread( new TP(pc));
-		t1.start();
-		t2.start();*/
+		for(int i = 0; i<10; i++){
+			c = p+n;
+			p = n;
+			n = c;
+			
+			System.out.println("c "+c);
+		}
 		
-//		String rgx = "([0-9]){1}([-])([0-9]{1})";
-		String rgx = "([0-9]){1}([-])([0-9]{3})|([0-9]){1}([-])([0-9]{2})|([0-9]){1}([-])([0-9]{1})";
-		String value = "0-5";
-		boolean bl = Pattern.matches(rgx , value);
-		
-		char val[] = value.toCharArray();
-		
-		System.out.println("bl "+bl);
-		System.out.println("value "+value);
-		
-		final String splitValue[] = value.split("-");
-		final String firstPart = splitValue[0];
-		final String secondPart = splitValue[1];
-	
-		int len = secondPart.length();
-		
-//		2-45 --> 2-045 --> -0452 --> 0452 --> 5204
-//		2-345 --> -3452 --> 3452 --> 5234
-//		2-5 --> 2-005 -->-0052 --> 0052 -->5200
-//		2-0 --> 2-000 -->0002 --> 0200
-//		0-2 --> 0-002 --> 0020 --> 2000
-		
-		StringBuffer sb = new StringBuffer();
-		
-		if(len==1)
-			sb = sb.append("00").append(secondPart).append(firstPart);
-//			value = "00"+secondPart+firstPart;
-//			value = "00"+secondPart+firstPart;
-		else if(len==2)
-			sb = sb.append("0").append(secondPart).append(firstPart);
-//			value = "0"+secondPart+firstPart;
-		else
-			sb = sb.append(secondPart).append(firstPart);
-//			value = secondPart+firstPart;
-		
-		System.out.println(" value "+sb);
-//		sb.append(sb.substring(2));
-		
-//		Character.DIRECTIONALITY_LEFT_TO_RIGHT;
-		
-		value = sb.substring(2).concat(sb.substring(0,2));
-//		value = value.substring(2)+value.substring(0, 2);
-		
-		System.out.println(" value "+value);
 	}  
+	
+	public String getPostcode(Person person) {
+		
+//		return person?getAddress()?.getPostcode(); 
+		
+		Address address = person.getAddress();  
+		return address.getPostalcode();  
+	}
+	
+	/*public String getPostcode(Person person) {  
+		if (person != null) {  
+			Address address = person.getAddress();  
+			if (address != null) {  
+				return address.getPostalcode();  
+			}  
+		}  
+		return null;  
+	}  */
+}
+
+class Person{
+	
+	private Address address;
+
+	public Address getAddress () {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+}
+
+class Address {
+	
+	private String postalcode;
+
+	public String getPostalcode() {
+		return postalcode;
+	}
+
+	public void setPostalcode(String postalcode) {
+		this.postalcode = postalcode;
+	}
+
 }
 
 class TP implements Runnable{
