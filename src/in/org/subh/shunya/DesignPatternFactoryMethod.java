@@ -5,19 +5,19 @@ public class DesignPatternFactoryMethod {
 	public static void main(String[] args) {
 		System.out.println("Main Method");
 		
-		StarterFactory sf = new StarterFactory();
-		InCompleteStarter st = sf.getStarter("TestA");
+		StarterFactory1 sf = new StarterFactory1();
+		InCompleteStarter1 st = sf.getStarter("TestA");
 		System.out.println("st "+st);
 		
 	}
 }
 
-interface Starter{
+interface Starter1{
 	
 	public void show();
 	
 }
-abstract class InCompleteStarter{
+abstract class InCompleteStarter1{
 	
 	abstract void objectCreator1();
 	
@@ -29,7 +29,7 @@ abstract class InCompleteStarter{
 	}
 }
 //class TestA implements Starter{
-class TestA  extends InCompleteStarter{
+class TestA1  extends InCompleteStarter1{
 	
 	void show(){
 		System.out.println("TestA ");
@@ -42,7 +42,7 @@ class TestA  extends InCompleteStarter{
 	}
 }
 //class TestB implements Starter{
-class TestB   extends InCompleteStarter{
+class TestB1   extends InCompleteStarter1{
 	void show(){
 		System.out.println("TestB ");
 	}
@@ -54,7 +54,7 @@ class TestB   extends InCompleteStarter{
 	}
 }	
 //class TestC implements Starter{
-class TestC  extends InCompleteStarter{
+class TestC1  extends InCompleteStarter1{
 	
 	void show(){
 		System.out.println("TestC ");
@@ -67,20 +67,20 @@ class TestC  extends InCompleteStarter{
 	}
 }
 
-class StarterFactory{
+class StarterFactory1{
 	private int vl = 10;
 	
 //	Starter getStarter(String name){
-	InCompleteStarter getStarter(String name){
+	InCompleteStarter1 getStarter(String name){
 		
 		if(name.equalsIgnoreCase("TestA")){
-			return new TestA();
+			return new TestA1();
 		}
 		else if(name.equalsIgnoreCase("TestB")){
-			return new TestB();
+			return new TestB1();
 		}
 		else if(name.equalsIgnoreCase("TestC")){
-			return new TestC();
+			return new TestC1();
 		}
 		return null;
 	}
