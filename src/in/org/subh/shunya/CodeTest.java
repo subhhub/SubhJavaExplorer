@@ -64,6 +64,18 @@ public class CodeTest {
 //		System.out.println("isNumeric "+isNumeric(str));
 }
 	
+	public static void simplStringSearch(){
+		
+		String myString = "I am a String!";
+		
+        if(myString.indexOf("String") == -1) {
+            System.out.println("String not Found!");
+        }
+        else {
+            System.out.println("String found at: " + myString.indexOf("String"));
+        }
+		
+	}
 	public static void removeDuplicateFromList(){
 		ArrayList<Object> al = new ArrayList<Object>();
 	    
