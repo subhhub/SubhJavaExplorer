@@ -26,8 +26,8 @@ public class CollectionMap {
 //		  tm.put(null,"Rahul420");   
 //		  System.out.println(tm);
 		
-//		  Map hm = new HashMap();
-		Map hm = new LinkedHashMap();		//Preserve the order
+		  Map hm = new HashMap();
+//		Map hm = new LinkedHashMap();		//Preserve the order
 //		Map hm = new ConcurrentHashMap();
 
 		System.out.println(hm.size());

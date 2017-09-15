@@ -10,6 +10,8 @@ public class CodeJava7Features {
 
 	public static void main(String[] args) {
 
+		
+		new CodeJava7Features().autoCloaseableTryResource();
 	}
 
 	public void testStringInSwitch(String param) {
@@ -68,9 +70,34 @@ public class CodeJava7Features {
 	}
 
 	public void testTryWithResourcesStatement() throws FileNotFoundException, IOException {
-		
+
 		try (FileInputStream in = new FileInputStream("java7.txt")) {
 			System.out.println(in.read());
 		}
 	}
+
+	public void autoCloaseableTryResource() {
+
+		try (MyResource mr = new MyResource()) {
+			System.out.println("MyResource created in try-with-resources");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("Out of try-catch block.");
+	}
+	
 }
+
+class MyResource implements AutoCloseable {
+
+	@Override
+	public void close() throws Exception {
+		System.out.println("Closing MyResource");
+	}
+
+}
+
+
+
+
+

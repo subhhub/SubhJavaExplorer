@@ -18,8 +18,8 @@ public class ThreadBlockingQueueProducerConsumer {
 		Thread consThread = new Thread(new Consumer(sharedQueue));
 
 		// Starting producer and Consumer thread
-		prodThread.start();
 		consThread.start();
+		prodThread.start();
 	}
 
 }

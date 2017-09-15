@@ -31,7 +31,7 @@ public class CodeJava8LambdaExpression {
 		int width = 10;
 
 		// with lambda
-		Drawable d2 = () -> { 
+		/*Drawable d2 = () -> { 
 			System.out.println("with lambda Drawing " + width);
 		};
 		d2.draw();
@@ -54,7 +54,7 @@ public class CodeJava8LambdaExpression {
         Addable ad3=(int a,int b)->{  
                             return (a+b);   
                             };  
-        System.out.println(ad3.add(100,200));  
+        System.out.println(ad3.add(100,200));  */
         
         //Lambda Expression Example: Foreach Loop
         List<String> list=new ArrayList<String>();  
@@ -63,14 +63,14 @@ public class CodeJava8LambdaExpression {
         list.add("irfan");  
         list.add("jai");  
           
-        list.forEach(  
+        /*list.forEach(  
             (n)->System.out.println(n)  
-        );  
+        );*/  
 
 	}
 }
 
-@FunctionalInterface		//Optional if a interface has only one abstract method then it called functional interface
+//@FunctionalInterface		//Optional if a interface has only one abstract method then it called functional interface
 interface Drawable {
 	public void draw();
 }

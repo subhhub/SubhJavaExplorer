@@ -22,8 +22,9 @@ public class CollectionList {
 		al.add(null);
 		al.add("Ravi");
 		al.add("Ajay");
-//		System.out.println(al.size());		//size 6 count everything
-//		System.out.println("arraylist: " + al);
+		al.add(3, "Priya");
+		System.out.println(al.size());		//size 6 count everything
+		System.out.println("arraylist: " + al);
 		
 		Collection c = al;
 		List cl = new ArrayList(19);
@@ -61,7 +62,7 @@ public class CollectionList {
 		
 		
 //		joinArrayList();
-		iteratorAndListIterator();
+//		iteratorAndListIterator();
 //		iteratorAndListIteratorModified();
 		
 	}

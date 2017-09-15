@@ -2,6 +2,7 @@ package in.org.subh.shunya;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class CollectionHashMapCustomeKey {
 
@@ -50,18 +51,27 @@ public class CollectionHashMapCustomeKey {
 		// Create key 2
 		AccountMan a2 = new AccountMan(2);
 		a2.setHolderName("A_TWO");
+		// Create key 3
+		AccountMan a4 = new AccountMan(1);
+		a1.setHolderName("A_ONE");
 
-		System.out.println(a1.hashCode()+ " "+a2.hashCode() + " "+ a1.equals(a2));	
+		System.out.println(a1.hashCode()+ " "+a2.hashCode()+ " "+a4.hashCode() + " "+ a1.equals(a4));	
 		
 		// Put mutable key and value in map
 		map.put(a1, a1.getHolderName());
 		map.put(a2, a2.getHolderName());
+		map.put(a4, a2.getHolderName());
 
 		// Change the keys state so hash map should be calculated again
-		a1.setHolderName("Defaulter");
-		a2.setHolderName("Bankrupt");
+//		a1.setHolderName("Defaulter");
+//		a2.setHolderName("Bankrupt");
 
-		System.out.println(map.size()+ " "+a1.hashCode()+ " "+a2.hashCode());	
+		System.out.println(map.size());		
+		
+		if(a1 == a2)
+			System.out.println("hascode are equal");
+		else
+			System.out.println("hascode are not equal");
 		
 		// Success !! We are able to get back the values
 		System.out.println(map.get(a1)); // Prints A_ONE
@@ -73,7 +83,7 @@ public class CollectionHashMapCustomeKey {
 		
 		System.out.println(a1.equals(a3));
 
-		System.out.println(a1.hashCode()+ " "+a2.hashCode()+ " "+a3.hashCode());	
+		System.out.println(a1.hashCode()+ " "+a2.hashCode()+ " "+a4.hashCode()+ " "+a3.hashCode());	
 		
 		// Success !! We are still able to get back the value for account number 1
 		System.out.println(map.get(a3)); // Prints A_ONE
@@ -82,6 +92,13 @@ public class CollectionHashMapCustomeKey {
 			System.out.println("True Reference");
 		else
 			System.out.println("false Reference");
+		
+		
+		/*Map mp = new TreeMap();		//RE: ClassCastException due to comparable
+		mp.put(a1, "subh");
+		mp.put(a2, "poo");
+		mp.put(a3, "priya");
+		System.out.println(mp +" "+mp.size());*/
 	}
 }
 
@@ -112,7 +129,7 @@ class AccountMan {
 	}*/
 	
 	// Depends only on account number
-	public int hashCode() {
+	/*public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + accountNumber;
@@ -121,10 +138,10 @@ class AccountMan {
 //		return accountNumber;
 
 //		return 100;
-	}
+	}*/
 	
 //	@Override
-	/*public boolean equals(Object obj) {
+	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -135,7 +152,7 @@ class AccountMan {
 		
 		return false;
 //		return true;
-	}*/
+	}
 	
 	// Compare only account numbers
 	/*public boolean equals(Object obj) {
