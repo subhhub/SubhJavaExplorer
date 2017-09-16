@@ -46,22 +46,22 @@ public class MessageServiceImpl implements MessageService {
 		return list.subList(start, start+size);
 	}
 	
-	public Message getMessage(long id){
+	/*public Message getMessage(long id){
 		return message.get(id);
-	}
+	}*/
 	
-	/*public Message getMessage(long id){			//Exception Handling by ExceptionMapper 
+	public Message getMessage(long id){			//Exception Handling by General Exception
 		Message msg =  message.get(id);
 		if(msg == null)
 			throw new DataNotFoundException("Message with Id "+id+" Not Found");
 		
 		return msg;
-	}*/
+	}
 	
 	/*public Message getMessage(long id){			//Exception Handling by WebApplicationException 
 		Message msg =  message.get(id);
 		
-		//This approach is not recommmanded to handle exception code in Service classes
+		//This approach is not recommended to handle exception code in Service classes
 		//Slitly better approach is write it in Rest resource classes.
 		ErrorMessage em = new ErrorMessage("Data Not Available", 404,"http://localhost:1010/WS_Rest_SocialMedia");
 		Response resp = Response.status(Status.NOT_FOUND)

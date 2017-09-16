@@ -96,7 +96,8 @@ public class MessageResource {
 	//HAETOS sharing links with response so that client can naviate further
 	@GET
 	@Path("{messageId}")
-	@Produces(MediaType.APPLICATION_JSON)
+//	@Produces(MediaType.APPLICATION_JSON)
+	@Produces(value = {MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	public Message getMessage(@PathParam("messageId") long messageId, @Context UriInfo uriInfo){
 		Message message = ms.getMessage(messageId);
 //		message.addLinks(uriInfo.getAbsolutePathBuilder().toString(), "self");
@@ -147,24 +148,25 @@ public class MessageResource {
 		return uri;
 	}
 	
-	/*@GET
-	@Path("{messageId}")
+	@GET
+	@Path("/exception/{messageId}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Message getMessage(@PathParam("messageId") long messageId){
+	public Message getMessage(@PathParam("messageId") long messageId) {
+		System.out.println(" messageId "+messageId);
 		Message msg =  ms.getMessage(messageId);
 		
 		//Handling exception in resource is slitly better compare to handle exception in service area
-		ErrorMessage em = new ErrorMessage("Data Not Available in Resouce", 404,"http://localhost:1010/WS_Rest_SocialMedia");
+		/*ErrorMessage em = new ErrorMessage("Data Not Available in Resouce", 404,"http://localhost:1010/WS_Rest_SocialMedia");
 		Response resp = Response.status(Status.NOT_FOUND)
 				.entity(em)
-				.build();
+				.build();*/
 		
-		if(msg == null)
-			throw new WebApplicationException(resp);
+//		if(msg == null)
+//			throw new WebApplicationException(resp);	//repeare the response and pass to WebApplicationException
 		
 		
 		return msg;
-	}*/
+	}
 	
 	
 	/*@POST

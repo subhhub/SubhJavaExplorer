@@ -22,7 +22,7 @@ import edu.subh.ws.rs.messenger.service.CommentServiceImpl;
  * sub resouce for message
  *
  */
-@Path("/")
+@Path("/")		//Sub resouce path
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class CommentResource {

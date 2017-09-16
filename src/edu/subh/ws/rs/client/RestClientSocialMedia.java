@@ -35,6 +35,8 @@ public class RestClientSocialMedia {
 		Client client = ClientBuilder.newClient();
 		
 		String baseUrl = "http://localhost:1010/WS_Rest_SocialMedia/webapi";
+		
+		//Builder Design Pattern
 		return client.target(baseUrl)
 				.path("messages")
 				.queryParam("year", year)

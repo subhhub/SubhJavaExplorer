@@ -8,6 +8,7 @@ import javax.ws.rs.MatrixParam;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.UriInfo;
@@ -27,10 +28,15 @@ public class InjectDemoResource {
 	
 	@GET
 	@Path("context")
-	public String getParamUsingContext(@Context UriInfo uriInfo){
+	public String getParamUsingContext(@Context UriInfo uriInfo, @Context HttpHeaders headers){
+		
+		String uri = uriInfo.getAbsolutePath().toString();
+		String hdr = headers.getCookies().toString();
 		
 		MultivaluedMap<String, String> qryParam  = uriInfo.getQueryParameters();
 		MultivaluedMap<String, String> pathParam  = uriInfo.getPathParameters();
-		return "Context TEst "+qryParam;
+		
+		return "Context TEst "+uri+" "+hdr;
+//		return "Context TEst "+qryParam;
 	}
 }
