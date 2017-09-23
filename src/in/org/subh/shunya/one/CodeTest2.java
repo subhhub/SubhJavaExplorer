@@ -1,31 +1,41 @@
 package in.org.subh.shunya.one;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Arrays;
 
 public class CodeTest2 extends Thread {
 
+	// static final List al = new ArrayList();// creating arraylist
+
 	public static void main(String[] args) throws IOException {
 
-		/*
-		 * Calculator cl = new Calculator(); 
-		 * TC1 t1 = new TC1(cl); 
-		 * TC1 t2 = new TC1(cl); 
-		 * t1.start(); 
-		 * t2.start();
-		 */
+		int[] iArray = new int[] {101,102,103,104,105}; 
+		System.out.println(Arrays.toString(iArray));
 
-		/*String value = "8-0";
-		Object type = "PDPCHCP";
-		gprsConversion(type, value);*/
+		String str = "subhash";
+		
+		 CodeTest2 ct = new  CodeTest2();
+		 String vl = ct.recur(str);
+		System.out.println(vl);
+	}
+	
+	String str1 = "";
+	String recur(String str){
 		
 		
+		if(str.length()>1){
+			str1 = str1 + str.substring(str.length()-1,	str.length());
+//			str = str.substring(0, str.length()-1);
+		}
+		else
+			return str1;
 		
+		
+		return recur(str.substring(0, str.length()-1));
 	}
 }
+
+
 class TC1 extends Thread {
 	Calculator c;
 
@@ -64,6 +74,8 @@ class Calculator {
 	public void calculate() {
 		System.out.println(j++);
 	}
+	
+	
 }
 
 class MQ {

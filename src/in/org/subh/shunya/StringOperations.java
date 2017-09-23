@@ -4,7 +4,7 @@ public class StringOperations {
 
 	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 
-		StringBuilder sbd;
+		//StringBuilder sbd = new StringBuilder("subh");
 		
 //		String s = new String ("Hello");
 //		String s3 = new String ("Hello");

@@ -10,14 +10,14 @@ public class Calculator {
 
 	public static void main(String[] args) {
 
-		int r = Calculator.add(10,20);
+		int r = new Calculator().add(10,20);
 		System.out.println("addtion "+r);
 		
 		String vl = Calculator.gprsConversion("4-24");
 		System.out.println("GPRS Converstion "+vl);
 	}
 	
-	public static int add(int a, int b){
+	public int add(int a, int b){
 		return a+b;
 	}
 

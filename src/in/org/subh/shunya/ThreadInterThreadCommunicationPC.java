@@ -32,10 +32,10 @@ public class ThreadInterThreadCommunicationPC {
 			}
 		});*/
 		
-		/*ProducerThread p = new ProducerThread(pc);
+		ProducerThread p = new ProducerThread(pc);
 		ConsumerThread c = new ConsumerThread(pc);
 		p.start();
-		c.start();*/
+		c.start();
 	}
 }
 

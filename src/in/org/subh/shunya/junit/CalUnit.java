@@ -8,15 +8,23 @@ import static org.junit.Assert.assertNull;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class CalUnit {
 
+	 static Calculator cl = null;
+	 
+	 @Before
+	 public void setUpObject(){
+		 
+		 cl = new Calculator();
+	 }
+	
     @Test
     public void test_method_1() {
         System.out.println("@Test - test_method_1");
         
-        Calculator cl = new Calculator();
         int a = cl.add(10, 20);
         assertEquals(30, a);
         

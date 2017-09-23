@@ -15,6 +15,7 @@ public class OverrideTest {
 		
 		CommonTestA caa = new CommonTestB();
 //		caa.show3(10);
+//		caa.privateOverrideMethod(10);
 		System.out.println(caa.x);
 		
 	}
@@ -52,6 +53,14 @@ class CommonTestA{
 	}
 	
 	static void staticMethod() {
+		System.out.println("Class X");
+	}
+	
+	final void finalOverrideMethod() {
+		System.out.println("Class X");
+	}
+	
+	private void privateOverrideMethod() {
 		System.out.println("Class X");
 	}
 }
@@ -97,6 +106,14 @@ class CommonTestB extends CommonTestA{
 	}
 	
 	static void staticMethod() {		//Its not a overriden method its a class method.
+		System.out.println("Class Y");
+	}
+	
+//	final void finalOverrideMethod() {			//can not override CE
+//		System.out.println("Class Y");
+//	}
+	
+	private void privateOverrideMethod(int b) {		//At the time of calling it will throw the RE
 		System.out.println("Class Y");
 	}
 }

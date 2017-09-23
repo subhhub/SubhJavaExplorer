@@ -1,9 +1,6 @@
 package in.org.subh.shunya.one;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.StringTokenizer;
-import java.util.WeakHashMap;
 
 public class CodeTest1 {
 	
@@ -20,18 +17,7 @@ public class CodeTest1 {
 	
 	public static void main(String[] args) {
 		
-		int p = 0;
-		int n = 1;
-		int c = 0;
-		
-		for(int i = 0; i<10; i++){
-			c = p+n;
-			p = n;
-			n = c;
-			
-			System.out.println("c "+c);
-		}
-		
+		Integer it = new Integer(10);
 	}  
 	
 	public String getPostcode(Person person) {

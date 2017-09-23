@@ -1,17 +1,17 @@
 package in.org.subh.shunya;
 
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class CollectionSetDulicate {
 
 	public static void main(String[] args) {
 		System.out.println("*******Insert Duplicate in Set**********");
 		
-		Set<EmployeeSet> test=new HashSet<EmployeeSet>();
+//		Set<EmployeeSet> test=new HashSet<EmployeeSet>();
+		Set<EmployeeSet> test=new TreeSet<EmployeeSet>();
 		EmployeeSet t1=new EmployeeSet(1,"sushil");
-        EmployeeSet t2=new EmployeeSet(1,"sushil");
+        EmployeeSet t2=new EmployeeSet(2,"sushil");
        
         test.add(t1);
         test.add(t2);
@@ -41,7 +41,7 @@ class EmployeeSet {
 	 * definition of equals
 	 */
 
-	/*public boolean equals(Object obj) {
+	public boolean equals(Object obj) {
 		if (obj == null)
 			return false;
 		if (obj == this)
@@ -50,11 +50,11 @@ class EmployeeSet {
 		if (this.eid == ((EmployeeSet) obj).eid	&& this.ename == ((EmployeeSet) obj).ename)
 			return true;
 		return false;
-	}*/
+	}
 
 	/* overriding hashcode() method to generate hashcode based on its eid */
 
-	/*public int hashCode() {
+	public int hashCode() {
 		return this.eid + 25;
-	}*/
+	}
 }
