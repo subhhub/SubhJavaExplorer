@@ -1,10 +1,14 @@
 package in.org.subh.shunya;
 
 class ConstantsWithoutEnums {
-	public static final String north = "NORTH";
-	public static final String south = "SOUTH";
-	public static final String east = "EAST";
-	public static final String west = "WEST";
+	
+	private ConstantsWithoutEnums() {
+	}
+	
+	public static final String NORTH = "NORTH";
+	public static final String SOUTH = "SOUTH";
+	public static final String EAST = "EAST";
+	public static final String WEST = "WEST";
 }
 
 enum Directions {
@@ -25,14 +29,26 @@ enum EnumsMethod {
 		// enums can have methods
 	}
 }
+enum ErrorEngineObjectSeverityType {
+    WARNING(1),
+	ERROR(2),
+	CRITICAL(3),
+	FATAL(4),
+	UNKNOWN(5);
+	
+	int value;
+	private ErrorEngineObjectSeverityType(int value) {
+		this.value = value;
+	}
+}
 
 public class EnumClass {
 	public static void main(String[] args) {
 		System.out.println("=====================Traditional ENUM=================== ");
-		System.out.println(ConstantsWithoutEnums.north);
-		System.out.println(ConstantsWithoutEnums.south);
-		System.out.println(ConstantsWithoutEnums.east);
-		System.out.println(ConstantsWithoutEnums.west);
+		System.out.println(ConstantsWithoutEnums.NORTH);
+		System.out.println(ConstantsWithoutEnums.EAST);
+		System.out.println(ConstantsWithoutEnums.SOUTH);
+		System.out.println(ConstantsWithoutEnums.WEST);
 
 		System.out.println("=====================ENUM=================== ");
 		Directions d1 = Directions.EAST;
@@ -41,6 +57,13 @@ public class EnumClass {
 
 		Directions d2 = Directions.NORTH;
 		System.out.println(d2);
+		
+		System.out.println(ErrorEngineObjectSeverityType.UNKNOWN);
+//		System.out.println(ErrorEngineObjectSeverityType.values());
+		
+		for (ErrorEngineObjectSeverityType cName : ErrorEngineObjectSeverityType.values()) {
+			System.out.println("Error Severity Value: " + cName.value + " - Error Severity Name: " + cName);
+		}
 	}
 }
 
