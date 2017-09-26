@@ -4,7 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
+import org.apache.log4j.Logger;
+
 public class CollectionHashMapCustomeKey {
+	
+	static final Logger logger = Logger.getLogger(CollectionHashMapCustomeKey.class);
 
 	public static void main(String[] args) {
 		
@@ -23,22 +27,22 @@ public class CollectionHashMapCustomeKey {
 		table.put(str1, "Spring");		//add key,value returns null as its a new entry
 		table.put(str2,"Hibernate");	//replaces old value with new Value and returns old value
 		     
-		System.out.println(str1.hashCode()+" "+str2.hashCode()); //null Spring(old value that was removed) 
-		System.out.println(table);
+		logger.info(str1.hashCode()+" "+str2.hashCode()); //null Spring(old value that was removed) 
+		logger.info(table);
 		
 		String str3=new String("subh");
-		System.out.println(str1.hashCode()+" "+str2.hashCode()+" "+str3.hashCode()); 
+		logger.info(str1.hashCode()+" "+str2.hashCode()+" "+str3.hashCode()); 
 		
-		System.out.println(table.get(str3));	//Hows your equals method is override everything is depend on that only
+		logger.info(table.get(str3));	//Hows your equals method is override everything is depend on that only
 		     
-//		System.out.println(table); //returns {nataraz=Hibernate}
+//		logger.info(table); //returns {nataraz=Hibernate}
 		
 		
 		
 		/*StringBuffer strb2=new StringBuffer("JPPriya");
-		System.out.println(strb2+" "+strb2.hashCode());
+		logger.info(strb2+" "+strb2.hashCode());
 		strb2.append("poo");
-		System.out.println(strb2+" "+strb2.hashCode());*/
+		logger.info(strb2+" "+strb2.hashCode());*/
 	}
 	
 	static void hashCodeEqual(){
@@ -55,7 +59,7 @@ public class CollectionHashMapCustomeKey {
 		AccountMan a4 = new AccountMan(1);
 		a1.setHolderName("A_ONE");
 
-		System.out.println(a1.hashCode()+ " "+a2.hashCode()+ " "+a4.hashCode() + " "+ a1.equals(a4));	
+		logger.info(a1.hashCode()+ " "+a2.hashCode()+ " "+a4.hashCode() + " "+ a1.equals(a4));	
 		
 		// Put mutable key and value in map
 		map.put(a1, a1.getHolderName());
@@ -66,32 +70,32 @@ public class CollectionHashMapCustomeKey {
 //		a1.setHolderName("Defaulter");
 //		a2.setHolderName("Bankrupt");
 
-		System.out.println(map.size());		
+		logger.info(map.size());		
 		
 		if(a1 == a2)
-			System.out.println("hascode are equal");
+			logger.info("hascode are equal");
 		else
-			System.out.println("hascode are not equal");
+			logger.info("hascode are not equal");
 		
 		// Success !! We are able to get back the values
-		System.out.println(map.get(a1)); // Prints A_ONE
-		System.out.println(map.get(a2)); // Prints A_TWO
+		logger.info(map.get(a1)); // Prints A_ONE
+		logger.info(map.get(a2)); // Prints A_TWO
 
 		// Try with newly created key with same account number
 		AccountMan a3 = new AccountMan(1);
 		a3.setHolderName("A_THREE");
 		
-		System.out.println(a1.equals(a3));
+		logger.info(a1.equals(a3));
 
-		System.out.println(a1.hashCode()+ " "+a2.hashCode()+ " "+a4.hashCode()+ " "+a3.hashCode());	
+		logger.info(a1.hashCode()+ " "+a2.hashCode()+ " "+a4.hashCode()+ " "+a3.hashCode());	
 		
 		// Success !! We are still able to get back the value for account number 1
 		System.out.println(map.get(a3)); // Prints A_ONE
 		
 		if(a1==a3)
-			System.out.println("True Reference");
+			logger.info("True Reference");
 		else
-			System.out.println("false Reference");
+			logger.info("false Reference");
 		
 		
 		/*Map mp = new TreeMap();		//RE: ClassCastException due to comparable
