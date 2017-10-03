@@ -3,7 +3,7 @@ package in.org.subh.shunya;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CodeJava8LambdaExpression {
+public class C8LambdaExpression {
 
 	public static void main(String[] args) {
 
@@ -70,11 +70,10 @@ public class CodeJava8LambdaExpression {
 	}
 }
 
-//@FunctionalInterface		//Optional if a interface has only one abstract method then it called functional interface
+@FunctionalInterface		//Optional if a interface has only one abstract method then it called functional interface
 interface Drawable {
 	public void draw();
 }
-
 
 interface DrawableArg {
 	public void draw(String str);
