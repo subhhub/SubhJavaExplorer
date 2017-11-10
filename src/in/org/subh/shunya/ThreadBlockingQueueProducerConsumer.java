@@ -39,7 +39,7 @@ class Producer implements Runnable {
 			try {
 				System.out.println("Produced: " + i);
 				sharedQueue.put(i);
-				Thread.sleep(300);
+//				Thread.sleep(300);
 			} catch (InterruptedException ex) {
 				Logger.getLogger(Producer.class.getName()).log(Level.SEVERE, null, ex);
 			}

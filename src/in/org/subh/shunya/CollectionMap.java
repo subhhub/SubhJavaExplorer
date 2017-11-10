@@ -35,6 +35,7 @@ public class CollectionMap {
 		hm.put(108,"Rahul2"); 
 		hm.put(100,"Rahul2"); 
 		hm.put(101, "Vijay");
+		hm.put(101, "Vijay");
 //		hm.put(null,"Rahul");  
 		hm.put(102,null);  
 		hm.put(102,"Rahul2");    		//duplicate key not allowed

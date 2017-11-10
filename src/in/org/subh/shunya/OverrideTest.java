@@ -45,7 +45,7 @@ class CommonTestA{
 		System.out.println(" Parent VarArg show4 ");
 	}
 	
-	void show5(int a)throws NullPointerException {
+	protected void show5(int a)throws NullPointerException {
 		System.out.println(" Parent VarArg show5 ");
 	}
 	synchronized void show6(int a)throws RuntimeException {
@@ -96,7 +96,7 @@ class CommonTestB extends CommonTestA{
 	}
 	
 	@Override
-	void show5(int a)throws RuntimeException {
+	public void show5(int a)throws RuntimeException {
 		System.out.println(" Child VarArg show5 ");
 	}
 	
@@ -105,6 +105,7 @@ class CommonTestB extends CommonTestA{
 		System.out.println(" Child VarArg show6 ");
 	}
 	
+//	@Override
 	static void staticMethod() {		//Its not a overriden method its a class method.
 		System.out.println("Class Y");
 	}
@@ -113,7 +114,8 @@ class CommonTestB extends CommonTestA{
 //		System.out.println("Class Y");
 //	}
 	
-	private void privateOverrideMethod(int b) {		//At the time of calling it will throw the RE
+//	@Override
+	private void privateOverrideMethod() {		//At the time of calling it will throw the RE
 		System.out.println("Class Y");
 	}
 }

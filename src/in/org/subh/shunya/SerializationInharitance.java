@@ -1,34 +1,47 @@
 package in.org.subh.shunya;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 public class SerializationInharitance {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		System.out.println("SerializationInharitance Multiple Objects Main");
-		
-		String s = "subhas";
-		String s1 = new String("subh");
-		
-		System.out.println(s.intern().hashCode());
-		System.out.println(s1.intern().hashCode());
+
+		Employeee b1 = new Employeee();
+		FileOutputStream fos = new FileOutputStream("abc.ser");
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+		// Method for serialization of B's class object
+		oos.writeObject(b1);
+
+		// closing streams
+		oos.close();
+		fos.close();
+
+		System.out.println("Object has been serialized");
+
+		/* De-Serializing B's(subclass) object */
+
+		// Reading the object from a file
+		FileInputStream fis = new FileInputStream("abc.ser");
+		ObjectInputStream ois = new ObjectInputStream(fis);
+
+		// Method for de-serialization of B's class object
+		Employeee b2 = (Employeee) ois.readObject();
 	}
 }
 
-//Case 1
-class AnimalParent implements Serializable{
-	int i = 10;
+class Addresss{
+    private String street; 
+    private String area;   
+    private String city;
 }
-class DogClind {
-	int j = 30;
+class Employeee implements Serializable{
+    private String name;
+    private Addresss address;
 }
-
-//Case 2
-class Animal{
-	int i = 10;
-}
-class Dog extends Animal implements Serializable{
-	int j = 30;
-}
-
-

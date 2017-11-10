@@ -2,6 +2,10 @@ package in.org.subh.shunya;
 
 public class AbstractClass {
 
+	public static void main(String[] args) {
+		
+	}
+	
 }
 
 abstract class AbsClass {

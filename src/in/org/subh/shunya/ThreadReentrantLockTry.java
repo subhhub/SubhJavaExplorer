@@ -3,8 +3,10 @@ package in.org.subh.shunya;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class ThreadReentrantLockTry extends Thread {
+import org.apache.log4j.Logger;
 
+public class ThreadReentrantLockTry {
+	
 	public static void main(String[] args) {
 
 		/*DisplayLockTry tt = new DisplayLockTry("First Thread");
@@ -20,50 +22,60 @@ public class ThreadReentrantLockTry extends Thread {
 }
 
 class DisplayLockTry extends Thread {
+	
+	static final Logger logger = Logger.getLogger(DisplayLockTry.class);
+	
 	static ReentrantLock rt = new ReentrantLock(); // lock should be unique
 
 	public DisplayLockTry(String name) {
 		super(name);
 	}
 
+	@Override
 	public void run() {
 
 		if (rt.tryLock()) {
-			System.out.println(Thread.currentThread().getName()	+ "...got lock and perfoming safe operation");
+			logger.info(Thread.currentThread().getName()	+ "...got lock and perfoming safe operation");
 			try {
 				Thread.sleep(200);
 			} catch (InterruptedException e) {
 				rt.unlock();
+				
+				 Thread.currentThread().interrupt();
 			}
 		} else {
-			System.out.println(Thread.currentThread().getName()	+ "...unable to got lock and perfoming alternate operation");
+			logger.info(Thread.currentThread().getName()	+ "...unable to got lock and perfoming alternate operation");
 		}
 	}
 }
 
 class DisplayLockTryLoop extends Thread {
+	
+	static final Logger logger = Logger.getLogger(DisplayLockTryLoop.class);
+	
 	static ReentrantLock rt = new ReentrantLock(); // lock should be unique
 
 	public DisplayLockTryLoop(String name) {
 		super(name);
 	}
 
+	@Override
 	public void run() {
 
 		do{
 			try{
-				System.out.println("Trying ");
+				logger.info("Trying ");
 				if (rt.tryLock(200,TimeUnit.MILLISECONDS)) {
-					System.out.println(Thread.currentThread().getName()	+ "...got lock and perfoming safe operation");
+					logger.info(Thread.currentThread().getName()	+ "...got lock and perfoming safe operation");
 					Thread.sleep(2000);
 					rt.unlock();
-					System.out.println(Thread.currentThread().getName()	+ "...Releases lock");
+					logger.info(Thread.currentThread().getName()	+ "...Releases lock");
 					break;
 				} else {
-					System.out.println(Thread.currentThread().getName()	+ "...unable to got lock and perfoming alternate operation");
+					logger.info(Thread.currentThread().getName()	+ "...unable to got lock and perfoming alternate operation");
 				}
 			}catch(Exception e){
-				System.out.println("Thread got interrupted");
+				logger.info("Thread got interrupted");
 			}
 		}while(true);
 	}

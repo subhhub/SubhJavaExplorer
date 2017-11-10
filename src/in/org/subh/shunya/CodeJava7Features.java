@@ -64,7 +64,7 @@ public class CodeJava7Features {
 
 		try {
 			throw new FileNotFoundException("FileNotFoundException");
-		} catch (ArrayIndexOutOfBoundsException | IOException fnfo) {
+		} catch (ArrayIndexOutOfBoundsException | IOException fnfo) {	//exception sequence doesn't matter
 			fnfo.printStackTrace();
 		}
 	}

@@ -1,23 +1,26 @@
 package in.org.subh.shunya;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 public class DesignPatternSingelton {
 
 	public static void main(String[] args) {
 		System.out.println("Singelton Test");
 		
-		SingelObjectEarly so = SingelObjectEarly.getSingleObject();
+		/*SingelObjectEarly so = SingelObjectEarly.getSingleObject();
 //		SingelObject so = new SingelObject();
 		System.out.println("so "+so.hashCode());
 		SingelObjectEarly so1 = SingelObjectEarly.getSingleObject();
 //		SingelObject so1 = new SingelObject();
 		System.out.println("so1 "+so1.hashCode());
-		so.show();
+		so.show();*/
 		
-		/*SingelObjectLazy so = SingelObjectLazy.getSingleObject();
+		SingelObjectLazy so = SingelObjectLazy.getSingleObject();
 		System.out.println("so "+so.hashCode());
 		SingelObjectLazy so1 = SingelObjectLazy.getSingleObject();
 		System.out.println("so1 "+so1.hashCode());
-		so.show();*/
+		so.show();
 	}
 }
 
@@ -44,12 +47,16 @@ class SingelObjectLazy{
 	
 	private static SingelObjectLazy so = null;
 	
+	static Lock l = new ReentrantLock();
+	
 	public static SingelObjectLazy getSingleObject(){
 		if(so == null){
-			synchronized(SingelObjectLazy.class){
+			l.lock();
+//			synchronized(SingelObjectLazy.class){
 				if(so == null)
 					so = new SingelObjectLazy();
-			}
+//			}
+			l.unlock();
 		}
 		return so;
 	}

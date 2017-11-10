@@ -90,7 +90,7 @@ public class CollectionHashMapCustomeKey {
 		logger.info(a1.hashCode()+ " "+a2.hashCode()+ " "+a4.hashCode()+ " "+a3.hashCode());	
 		
 		// Success !! We are still able to get back the value for account number 1
-		System.out.println(map.get(a3)); // Prints A_ONE
+		logger.info(map.get(a3)); // Prints A_ONE
 		
 		if(a1==a3)
 			logger.info("True Reference");
@@ -133,7 +133,7 @@ class AccountMan {
 	}*/
 	
 	// Depends only on account number
-	/*public int hashCode() {
+	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + accountNumber;
@@ -142,17 +142,17 @@ class AccountMan {
 //		return accountNumber;
 
 //		return 100;
-	}*/
+	}
 	
 //	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		/*if (this == obj)
 			return true;
 		if (obj == null)
 			return false;
 		AccountMan other = (AccountMan) obj;
 		if (accountNumber == other.accountNumber)
-			return true;
+			return true;*/
 		
 		return false;
 //		return true;
