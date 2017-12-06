@@ -2,12 +2,10 @@ package in.org.subh.shunya;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
-import java.util.Vector;
 
 public class CollectionList {
 	public static void main(String[] args) {
@@ -63,7 +61,7 @@ public class CollectionList {
 		
 //		joinArrayList();
 //		iteratorAndListIterator();
-//		iteratorAndListIteratorModified();
+		iteratorAndListIteratorModified();
 		
 	}
 	
@@ -105,6 +103,12 @@ public class CollectionList {
         list.add("SECOND");
         list.add("THIRD");
 
+        Iterator ls = list.iterator();
+        while(ls.hasNext()){
+        	System.out.println(ls.next());
+        	ls.remove();
+        }
+        
         ListIterator<String> listIterator = list.listIterator();
         System.out.println(list);       //Output :    [FIRST, SECOND, THIRD]
  

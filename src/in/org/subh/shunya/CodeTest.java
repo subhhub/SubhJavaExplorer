@@ -40,8 +40,11 @@ public class CodeTest {
 //		StringContainsDigits(str);
 //		arrayDuplicateValue();
 //		findCommonElementsThreeArrays();
-		mergeSortedArray();
+//		mergeSortedArray();
 //		reverseArray();
+//		reverseNumber();
+		int vl = reverseNumber2(12345);
+		System.out.println("vl "+vl);
 		
 //		System.out.println("Hello Code");
 //		System.out.println(" arg "+ args[0]);
@@ -63,7 +66,54 @@ public class CodeTest {
 //		String strN = "null";
 //		System.out.println("isNumeric "+isNumeric(str));
 }
-	
+	static int last_digit = 0;
+	static int reversedNum = 0;
+	public static int reverseNumber2(int input){
+		
+//		int input = 12345;
+
+		System.out.println(0* 10);
+		
+		if(input != 0){
+			 last_digit = input % 10;
+//			    if (last_digit % 2 != 0) {     		//only even number
+			        reversedNum = reversedNum * 10 + last_digit;
+
+//			    }
+			    input = input / 10; 
+			reverseNumber2(input);
+		}
+		
+		/*while (input != 0) {    
+		    last_digit = input % 10;
+//		    if (last_digit % 2 != 0) {     		//only even number
+		        reversedNum = reversedNum * 10 + last_digit;
+
+//		    }
+		    input = input / 10; 
+		}*/
+		System.out.println(" reversedNum "+reversedNum);
+		return reversedNum;
+	}
+
+	public static void reverseNumber(){
+		
+		int input = 12345;
+		int last_digit = 0;
+		int reversedNum = 0;
+		System.out.println(0* 10);
+		
+		while (input != 0) {    
+		    last_digit = input % 10;
+//		    if (last_digit % 2 != 0) {     		//only even number
+		        reversedNum = reversedNum * 10 + last_digit;
+
+//		    }
+		    input = input / 10; 
+		}
+		System.out.println(" reversedNum "+reversedNum);
+	}
+
 	public static void simplStringSearch(){
 		
 		String myString = "I am a String!";

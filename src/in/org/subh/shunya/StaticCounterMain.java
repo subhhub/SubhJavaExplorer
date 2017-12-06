@@ -4,23 +4,23 @@ public class StaticCounterMain {
 
 	public static void main(String[] args) throws InterruptedException {
 
-		StaticCounter ct1 = new StaticCounter();			//Using individual object
+		/*StaticCounter ct1 = new StaticCounter();			//Using individual object
 		ct1.increment();
 		StaticCounter ct2 = new StaticCounter();
 		ct2.increment();
 		StaticCounter ct3 = new StaticCounter();
 		ct3.increment();
 		StaticCounter ct4 = new StaticCounter();
-		ct4.increment();
+		ct4.increment();*/
 		
-		/*StaticCounter ct1 = StaticCounter.getStaticCounter();			//Using Singleton
+		StaticCounter ct1 = StaticCounter.getStaticCounter();			//Using Singleton
 		ct1.increment();
 		StaticCounter ct2 = StaticCounter.getStaticCounter();
 		ct2.increment();
 		StaticCounter ct3 = StaticCounter.getStaticCounter();
 		ct3.increment();
 		StaticCounter ct4 = StaticCounter.getStaticCounter();
-		ct4.increment();*/
+		ct4.increment();
 		
 		/*System.out.println("ct1 "+ct1);
 		System.out.println("ct2 "+ct2);

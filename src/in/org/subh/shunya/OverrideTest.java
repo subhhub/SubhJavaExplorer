@@ -72,13 +72,14 @@ class CommonTestA{
 
 class CommonTestB extends CommonTestA{
 	
-	/*int x = 20;
+	int x = 20;
 	
-	void show1(){
+	
+	void show1(){		//	cann't override private method
 		System.out.println("CommonTestB show1 ");
 	}
 	
-	void show2(){
+	/*void show2(){
 		System.out.println("CommonTestB show2");
 	}
 	void show3(int a)throws StringIndexOutOfBoundsException{

@@ -69,5 +69,14 @@ public class InnerClassNormal {
 			System.out.println("InnerNoarmalPrint Light method");
 		}
 	}
+}
+
+class A1{
+	private void m1(){
+	}
 	
+	class B1{
+		/*static void m2(){	//The method m2 cannot be declared static; static methods can only be declared in a static or top level type
+		}*/
+	}
 }

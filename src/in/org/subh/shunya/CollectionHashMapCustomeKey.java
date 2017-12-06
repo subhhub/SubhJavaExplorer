@@ -57,9 +57,9 @@ public class CollectionHashMapCustomeKey {
 		a2.setHolderName("A_TWO");
 		// Create key 3
 		AccountMan a4 = new AccountMan(1);
-		a1.setHolderName("A_ONE");
+		a1.setHolderName("A_ONE4");
 
-		logger.info(a1.hashCode()+ " "+a2.hashCode()+ " "+a4.hashCode() + " "+ a1.equals(a4));	
+		logger.info(a1.hashCode()+ " "+a2.hashCode()+ " "+a4.hashCode() + " "+ a1.equals(a4) + " "+ (a1==a4));	
 		
 		// Put mutable key and value in map
 		map.put(a1, a1.getHolderName());
@@ -90,7 +90,7 @@ public class CollectionHashMapCustomeKey {
 		logger.info(a1.hashCode()+ " "+a2.hashCode()+ " "+a4.hashCode()+ " "+a3.hashCode());	
 		
 		// Success !! We are still able to get back the value for account number 1
-		logger.info(map.get(a3)); // Prints A_ONE
+		logger.info("Retrive existing value=> "+map.get(a3)); // Prints A_ONE
 		
 		if(a1==a3)
 			logger.info("True Reference");
@@ -133,7 +133,7 @@ class AccountMan {
 	}*/
 	
 	// Depends only on account number
-	public int hashCode() {
+	/*public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + accountNumber;
@@ -142,24 +142,27 @@ class AccountMan {
 //		return accountNumber;
 
 //		return 100;
-	}
+	}*/
 	
-//	@Override
+/*//	@Override
 	public boolean equals(Object obj) {
-		/*if (this == obj)
+		
+		System.out.println("accountNumber "+accountNumber);
+		
+		if (this == obj)
 			return true;
 		if (obj == null)
 			return false;
 		AccountMan other = (AccountMan) obj;
 		if (accountNumber == other.accountNumber)
-			return true;*/
+			return true;
 		
 		return false;
 //		return true;
-	}
+	}*/
 	
 	// Compare only account numbers
-	/*public boolean equals(Object obj) {
+	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -172,5 +175,5 @@ class AccountMan {
 		return true;
 
 //		return false;
-	}*/
+	}
 }

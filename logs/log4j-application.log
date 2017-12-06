@@ -1,24 +1,55 @@
-2017-09-26 19:28:08 INFO  CollectionHashMapCustomeKey:62 - 1461085307 2132734951 1226769380 true
-2017-09-26 19:28:08 INFO  CollectionHashMapCustomeKey:73 - 3
-2017-09-26 19:28:08 INFO  CollectionHashMapCustomeKey:78 - hascode are not equal
-2017-09-26 19:28:08 INFO  CollectionHashMapCustomeKey:81 - A_ONE
-2017-09-26 19:28:08 INFO  CollectionHashMapCustomeKey:82 - A_TWO
-2017-09-26 19:28:08 INFO  CollectionHashMapCustomeKey:88 - true
-2017-09-26 19:28:08 INFO  CollectionHashMapCustomeKey:90 - 1461085307 2132734951 1226769380 1875064030
-2017-09-26 19:28:08 INFO  CollectionHashMapCustomeKey:98 - false Reference
-2017-09-26 19:28:10 INFO  CollectionHashMapCustomeKey:62 - 1732940710 1361292356 2097335801 true
-2017-09-26 19:28:10 INFO  CollectionHashMapCustomeKey:73 - 3
-2017-09-26 19:28:10 INFO  CollectionHashMapCustomeKey:78 - hascode are not equal
-2017-09-26 19:28:10 INFO  CollectionHashMapCustomeKey:81 - A_ONE
-2017-09-26 19:28:10 INFO  CollectionHashMapCustomeKey:82 - A_TWO
-2017-09-26 19:28:10 INFO  CollectionHashMapCustomeKey:88 - true
-2017-09-26 19:28:10 INFO  CollectionHashMapCustomeKey:90 - 1732940710 1361292356 2097335801 1555668232
-2017-09-26 19:28:10 INFO  CollectionHashMapCustomeKey:98 - false Reference
-2017-09-26 19:28:12 INFO  CollectionHashMapCustomeKey:62 - 1732940710 1361292356 2097335801 true
-2017-09-26 19:28:12 INFO  CollectionHashMapCustomeKey:73 - 3
-2017-09-26 19:28:12 INFO  CollectionHashMapCustomeKey:78 - hascode are not equal
-2017-09-26 19:28:12 INFO  CollectionHashMapCustomeKey:81 - A_ONE
-2017-09-26 19:28:12 INFO  CollectionHashMapCustomeKey:82 - A_TWO
-2017-09-26 19:28:12 INFO  CollectionHashMapCustomeKey:88 - true
-2017-09-26 19:28:12 INFO  CollectionHashMapCustomeKey:90 - 1732940710 1361292356 2097335801 1555668232
-2017-09-26 19:28:12 INFO  CollectionHashMapCustomeKey:98 - false Reference
+2017-11-24 23:28:20 INFO  CollectionHashMapCustomeKey:98 - false Reference
+2017-11-24 23:32:31 INFO  CollectionHashMapCustomeKey:62 - 322474813 1732940710 1361292356 true false
+2017-11-24 23:32:31 INFO  CollectionHashMapCustomeKey:73 - 3
+2017-11-24 23:32:31 INFO  CollectionHashMapCustomeKey:78 - hascode are not equal
+2017-11-24 23:32:31 INFO  CollectionHashMapCustomeKey:81 - A_ONE4
+2017-11-24 23:32:31 INFO  CollectionHashMapCustomeKey:82 - A_TWO
+2017-11-24 23:32:31 INFO  CollectionHashMapCustomeKey:88 - true
+2017-11-24 23:32:31 INFO  CollectionHashMapCustomeKey:90 - 322474813 1732940710 1361292356 1126285270
+2017-11-24 23:32:31 INFO  CollectionHashMapCustomeKey:93 - Retrive existing value=> null
+2017-11-24 23:32:31 INFO  CollectionHashMapCustomeKey:98 - false Reference
+2017-11-24 23:33:23 INFO  CollectionHashMapCustomeKey:62 - 1732940710 1361292356 2097335801 false false
+2017-11-24 23:33:23 INFO  CollectionHashMapCustomeKey:73 - 3
+2017-11-24 23:33:23 INFO  CollectionHashMapCustomeKey:78 - hascode are not equal
+2017-11-24 23:33:23 INFO  CollectionHashMapCustomeKey:81 - A_ONE4
+2017-11-24 23:33:23 INFO  CollectionHashMapCustomeKey:82 - A_TWO
+2017-11-24 23:33:23 INFO  CollectionHashMapCustomeKey:88 - false
+2017-11-24 23:33:23 INFO  CollectionHashMapCustomeKey:90 - 1732940710 1361292356 2097335801 1555668232
+2017-11-24 23:33:23 INFO  CollectionHashMapCustomeKey:93 - Retrive existing value=> null
+2017-11-24 23:33:23 INFO  CollectionHashMapCustomeKey:98 - false Reference
+2017-12-02 08:14:43 INFO  CollectionHashMapCustomeKey:62 - 1 1 1 false false
+2017-12-02 08:14:43 INFO  CollectionHashMapCustomeKey:73 - 3
+2017-12-02 08:14:43 INFO  CollectionHashMapCustomeKey:78 - hascode are not equal
+2017-12-02 08:14:43 INFO  CollectionHashMapCustomeKey:81 - A_ONE4
+2017-12-02 08:14:43 INFO  CollectionHashMapCustomeKey:82 - A_TWO
+2017-12-02 08:14:43 INFO  CollectionHashMapCustomeKey:88 - false
+2017-12-02 08:14:43 INFO  CollectionHashMapCustomeKey:90 - 1 1 1 1
+2017-12-02 08:14:43 INFO  CollectionHashMapCustomeKey:93 - Retrive existing value=> null
+2017-12-02 08:14:43 INFO  CollectionHashMapCustomeKey:98 - false Reference
+2017-12-02 08:15:14 INFO  CollectionHashMapCustomeKey:62 - 32 33 32 false false
+2017-12-02 08:15:14 INFO  CollectionHashMapCustomeKey:73 - 3
+2017-12-02 08:15:14 INFO  CollectionHashMapCustomeKey:78 - hascode are not equal
+2017-12-02 08:15:14 INFO  CollectionHashMapCustomeKey:81 - A_ONE4
+2017-12-02 08:15:14 INFO  CollectionHashMapCustomeKey:82 - A_TWO
+2017-12-02 08:15:14 INFO  CollectionHashMapCustomeKey:88 - false
+2017-12-02 08:15:14 INFO  CollectionHashMapCustomeKey:90 - 32 33 32 32
+2017-12-02 08:15:14 INFO  CollectionHashMapCustomeKey:93 - Retrive existing value=> null
+2017-12-02 08:15:14 INFO  CollectionHashMapCustomeKey:98 - false Reference
+2017-12-02 08:16:26 INFO  CollectionHashMapCustomeKey:62 - 32 33 32 true false
+2017-12-02 08:16:26 INFO  CollectionHashMapCustomeKey:73 - 2
+2017-12-02 08:16:26 INFO  CollectionHashMapCustomeKey:78 - hascode are not equal
+2017-12-02 08:16:26 INFO  CollectionHashMapCustomeKey:81 - A_TWO
+2017-12-02 08:16:26 INFO  CollectionHashMapCustomeKey:82 - A_TWO
+2017-12-02 08:16:26 INFO  CollectionHashMapCustomeKey:88 - true
+2017-12-02 08:16:26 INFO  CollectionHashMapCustomeKey:90 - 32 33 32 32
+2017-12-02 08:16:26 INFO  CollectionHashMapCustomeKey:93 - Retrive existing value=> A_TWO
+2017-12-02 08:16:26 INFO  CollectionHashMapCustomeKey:98 - false Reference
+2017-12-02 08:17:04 INFO  CollectionHashMapCustomeKey:62 - 1361292356 2097335801 1126225549 true false
+2017-12-02 08:17:04 INFO  CollectionHashMapCustomeKey:73 - 3
+2017-12-02 08:17:04 INFO  CollectionHashMapCustomeKey:78 - hascode are not equal
+2017-12-02 08:17:04 INFO  CollectionHashMapCustomeKey:81 - A_ONE4
+2017-12-02 08:17:04 INFO  CollectionHashMapCustomeKey:82 - A_TWO
+2017-12-02 08:17:04 INFO  CollectionHashMapCustomeKey:88 - true
+2017-12-02 08:17:04 INFO  CollectionHashMapCustomeKey:90 - 1361292356 2097335801 1126225549 502572999
+2017-12-02 08:17:04 INFO  CollectionHashMapCustomeKey:93 - Retrive existing value=> null
+2017-12-02 08:17:04 INFO  CollectionHashMapCustomeKey:98 - false Reference
