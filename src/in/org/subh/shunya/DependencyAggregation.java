@@ -58,11 +58,9 @@ class StudentAgg {
 	String dept;
 
 	StudentAgg(String name, int id, String dept) {
-
 		this.name = name;
 		this.id = id;
 		this.dept = dept;
-
 	}
 }
 
@@ -79,7 +77,6 @@ class Department {
 
 		this.name = name;
 		this.students = students;
-
 	}
 
 	public List<StudentAgg> getStudents() {
@@ -113,5 +110,4 @@ class Institute {
 		}
 		return noOfStudents;
 	}
-
 }

@@ -9,7 +9,7 @@ import javax.xml.bind.Unmarshaller;
 public class JAXBXmlToObject {
 
 	public static void main(String[] args) {
-		System.out.println("JAXB XML to Employee");
+		System.out.println("Un-marshalling : JAXB XML to Employee");
 
 		try {
 			File file = new File("employee.xml");

@@ -22,10 +22,19 @@ public class CodeTest1 {
 		Collection c;
 	}
 	
+	
 	public static void main(String[] args) throws IOException {
 		
-		System.out.println("hello");
-
+		int vl[] = {3,5,2,7,8,1};
+		
+		vl[1] = vl[1] + vl[2];
+		vl[2] = vl[1] - vl[2];
+		vl[1] = vl[1] - vl[2];
+		
+		for(int i = 0; i<vl.length; i++)
+			System.out.print(vl[i]+" ");
 		
 	}  
 }
+
+

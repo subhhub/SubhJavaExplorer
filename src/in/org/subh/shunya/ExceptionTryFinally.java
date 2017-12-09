@@ -42,9 +42,9 @@ public class ExceptionTryFinally {
 		try {
 			System.out.println("Before Exception ");
 //			int vl = 10/0;
-			throw new NullPointerException();
+//			throw new NullPointerException();
 //			System.out.println("After Exception ");
-//			return 2;
+			return 2;
 		} /*catch (ArithmeticException | NullPointerException e) {
 			System.out.println("Exception "+e);
 			return 3;

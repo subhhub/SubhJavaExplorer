@@ -43,8 +43,12 @@ public class CodeTest {
 //		mergeSortedArray();
 //		reverseArray();
 //		reverseNumber();
-		int vl = reverseNumber2(12345);
-		System.out.println("vl "+vl);
+		
+//		int vl = reverseNumber2(12345);
+//		System.out.println("vl "+vl);
+		
+		int vl = addTwoNumbersWithoutPlusOperator(5, 4);
+		System.out.println("Add Two Nubmers without using Plus operator "+vl);
 		
 //		System.out.println("Hello Code");
 //		System.out.println(" arg "+ args[0]);
@@ -95,6 +99,22 @@ public class CodeTest {
 		System.out.println(" reversedNum "+reversedNum);
 		return reversedNum;
 	}
+	
+	/*
+     * Adding two integers without any arithmetic operator and using recursion.
+     * This solution also uses XOR and AND bitwise and << left shift bitshift
+     * operator
+     */
+    public static int addTwoNumbersWithoutPlusOperator (int a, int b){ 
+        while (b != 0){
+            int carry = (a & b) ; //CARRY is AND of two bits
+          
+            a = a ^b; //SUM of two bits is A XOR B
+          
+            b = carry << 1; //shifts carry to 1 bit to calculate sum
+        }
+        return a;
+    }
 
 	public static void reverseNumber(){
 		

@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class JAXBObjectToXml {
 
 	public static void main(String[] args) throws JAXBException, FileNotFoundException {
-		System.out.println("JAXB Employee to XML");
+		System.out.println("Marshalling : JAXB Employee to XML");
 
 		JAXBContext contextObj = JAXBContext.newInstance(EmployeeObject.class);
 
