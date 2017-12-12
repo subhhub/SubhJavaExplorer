@@ -1,6 +1,7 @@
 package in.org.subh.shunya;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -61,7 +62,8 @@ public class CollectionList {
 		
 //		joinArrayList();
 //		iteratorAndListIterator();
-		iteratorAndListIteratorModified();
+//		iteratorAndListIteratorModified();
+		methodArrays();
 		
 	}
 	
@@ -154,4 +156,15 @@ public class CollectionList {
         System.out.println(list1);    //Output : [111, 222, 333, 444, 555, 666, 777, 888]
         System.out.println(list2);    //Output : [555, 666, 777, 888, 111, 222, 333, 444]
 	}
+	
+	static void methodArrays(){
+		
+		String []str = new String[]{"my", "name", "is", "varargs"};
+        List<String> ls = Arrays.asList(str);
+        ls.add("ok");
+        
+        System.out.println(ls);
+	}
+	
+	
 }
