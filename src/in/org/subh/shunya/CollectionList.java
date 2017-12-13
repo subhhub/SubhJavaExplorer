@@ -160,8 +160,9 @@ public class CollectionList {
 	static void methodArrays(){
 		
 		String []str = new String[]{"my", "name", "is", "varargs"};
-        List<String> ls = Arrays.asList(str);
-        ls.add("ok");
+        List<String> ls = Arrays.asList(str);							//Wrong
+//        List<String> ls = new ArrayList<>(Arrays.asList(str));		//Right
+        ls.add("ok");	//java.lang.UnsupportedOperationException due to immutable. To fix it we need to make is mutable
         
         System.out.println(ls);
 	}
