@@ -7,7 +7,7 @@ public class CodeStack {
 
 	public static void main(String[] args) {
 
-		Stack st = new Stack();
+		Stack1 st = new Stack1();
 		
 		st.push("subh1");
 		st.push("subh2");
@@ -23,7 +23,7 @@ public class CodeStack {
 	}
 }
 
-class Stack{
+class Stack1{
 	List ls = new ArrayList();
 	
 	void push(String el){

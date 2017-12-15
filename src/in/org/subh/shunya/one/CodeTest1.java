@@ -1,6 +1,7 @@
 package in.org.subh.shunya.one;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.StringTokenizer;
 
@@ -35,9 +36,30 @@ public class CodeTest1 {
 	
 	public static void main(String[] args) throws IOException {
 		
-		String s = new String("subh");
-		
+		/*A a = new B();
+		C b = (C)a;
+		a.m1();
+		b.m1();*/
 	}  
+}
+
+class A{
+	
+	void m1(){
+		System.out.println("A");
+	}
+}
+class B extends A{
+	
+	void m1(){
+		System.out.println("B");
+	}
+}
+class C extends B{
+
+	void m1(){
+		System.out.println("C");
+	}
 }
 
 
