@@ -20,10 +20,7 @@ public class CodeTest1 {
 		}
 		
 		Collection c;
-	}
-	
-	
-	public static void main(String[] args) throws IOException {
+		
 		
 		int vl[] = {3,5,2,7,8,1};
 		
@@ -33,6 +30,12 @@ public class CodeTest1 {
 		
 		for(int i = 0; i<vl.length; i++)
 			System.out.print(vl[i]+" ");
+	}
+	
+	
+	public static void main(String[] args) throws IOException {
+		
+		String s = new String("subh");
 		
 	}  
 }
