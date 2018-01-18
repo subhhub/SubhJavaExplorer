@@ -14,16 +14,26 @@ public class CollectionList {
 
 		// Vector v = new Vector();
 		
+		String vl[] = {"subh", "poo", "pri"};
+		
 		List al = new ArrayList();// creating arraylist
 		al.add("Ravi");
 		al.add("Vijay");
 		al.add(null);
 		al.add(null);
+		al.add(10);
 		al.add("Ravi");
 		al.add("Ajay");
 		al.add(3, "Priya");
-		System.out.println(al.size());		//size 6 count everything
+		System.out.println(al.size());		//size 8 count everything
 		System.out.println("arraylist: " + al);
+		
+//		for(int i = 0; i<al.size(); i++)
+//			System.out.println(al.get(i));
+		for(Object v : al){
+			System.out.println("v "+v);
+		}
+			
 		
 		Collection c = al;
 		List cl = new ArrayList(19);
@@ -60,10 +70,10 @@ public class CollectionList {
 		Enumeration vn = v.elements();*/
 		
 		
-//		joinArrayList();
+		joinArrayList();
 //		iteratorAndListIterator();
 //		iteratorAndListIteratorModified();
-		methodArrays();
+//		methodArrays();
 		
 	}
 	
@@ -146,6 +156,9 @@ public class CollectionList {
         list2.add(888);
         System.out.println(list2);    //Output : [555, 666, 777, 888]
          
+        ArrayList<Integer> list3 = new ArrayList<Integer>(list1);
+        System.out.println(list3);     //Output : [111, 222, 333, 444]
+        
         //Joining list1 and list2
 //        list1.addAll(list2);
         list2.addAll(list1);

@@ -17,23 +17,23 @@ public class CollectionMap {
 		System.out.println("Map Main");
 		
 		Map tm=new TreeMap();  				//No Initial Capacity
-		  tm.put(100,"Rahul2");  
-		  tm.put(101,"Vijay");  
-//		  tm.put(null,"Rahul");   
-		  tm.put(102,"Rahul2");  
-		  tm.put(102,"Rahul2");  		//duplicate key not allowed
-		  tm.put(2,"Rahul2");  		//duplicate key not allowed
-//		  tm.put(null,"Rahul420");   
-//		  System.out.println(tm);
+		tm.put(100,"Rahul2");  
+		tm.put(101,"Vijay");  
+		//tm.put(null,"Rahul");   
+		tm.put(102,"Rahul2");  
+		tm.put(102,"Rahul2");  		//duplicate key not allowed
+		tm.put(2,"Rahul2");  	
+		//tm.put(null,"Rahul420");   
+		System.out.println(tm);
 		
-		  Map hm = new HashMap();
+		Map hm = new HashMap();
 //		Map hm = new LinkedHashMap();		//Preserve the order
 //		Map hm = new ConcurrentHashMap();
 
 		System.out.println(hm.size());
 		
 		hm.put(108,"Rahul2"); 
-		hm.put(100,"Rahul2"); 
+		hm.put("s1","Rahul2"); 			//heterogeneuos key are allowed
 		hm.put(101, "Vijay");
 		hm.put(101, "Vijay");
 //		hm.put(null,"Rahul");  

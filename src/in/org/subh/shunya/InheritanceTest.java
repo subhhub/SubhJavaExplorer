@@ -6,12 +6,12 @@ public class InheritanceTest {
 
 		AA a = new AA();
 		BB b = new CC();
-		CC c = (CC) new AA();
+		CC c = (CC) new AA(); //RE: ClassCastException: AA cannot be cast to CC
 		
 		
 //		a.abc
-		b.abc();
-//		c.abc();
+//		b.abc();
+		c.abc();
 		
 	}
 	

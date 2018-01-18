@@ -13,10 +13,11 @@ public class CollectionQueue {
         //Inserting elements into pQueue.
         pQueue.offer(21);
         pQueue.offer(17);
-        pQueue.offer(37);
+        pQueue.offer(67);
+        pQueue.offer(null);			//RE: NPE
         pQueue.offer(41);
         pQueue.offer(9);
-        pQueue.offer(67);
+        pQueue.offer(67);		//Allows duplicate
         pQueue.offer(31);
         System.out.println("pQueue "+pQueue);		//[9, 17, 31, 41, 21, 67, 37]
  

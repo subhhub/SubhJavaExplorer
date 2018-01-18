@@ -64,7 +64,9 @@ public class CodeJava7Features {
 
 		try {
 			throw new FileNotFoundException("FileNotFoundException");
-		} catch (ArrayIndexOutOfBoundsException | IOException fnfo) {	//exception sequence doesn't matter
+//		} catch (ArrayIndexOutOfBoundsException | IOException fnfo) {	//exception sequence doesn't matter for checked and unchecked exceptions
+//		} catch (IndexOutOfBoundsException | ArrayIndexOutOfBoundsException | IOException fnfo) {	//exception sequence matter if it is same type of exception
+		} catch (ArrayIndexOutOfBoundsException | IOException fnfo) {	//if checked exception doesn't available inside try block and we are catching it then it will throw exception
 			fnfo.printStackTrace();
 		}
 	}
