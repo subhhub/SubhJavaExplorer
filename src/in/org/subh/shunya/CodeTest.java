@@ -8,6 +8,8 @@ import java.util.ListIterator;
 import java.util.Set;
 import java.util.TreeSet;
 
+import in.org.subh.shunya.one.CodeTest1;
+
 public class CodeTest {
 	
 	synchronized public static void main(String[] args) {
@@ -69,7 +71,28 @@ public class CodeTest {
 		
 //		String strN = "null";
 //		System.out.println("isNumeric "+isNumeric(str));
+		
+		String strrec = "jobgotit";
+		new CodeTest().rec(strrec);
+		System.out.println(rStr);
 }
+	static String rStr = "";
+	String rec(String str){
+		
+		int len = str.length();
+		
+		rStr = rStr + str.substring(len-1, len);
+		String nStr = str.substring(0, len-1);
+		System.out.println(len+" rSr "+rStr);
+		
+		if(len>1)
+			rec(str.substring(0, len-1));
+		else
+			return rStr;
+		
+		return str;
+	}
+	
 	static int last_digit = 0;
 	static int reversedNum = 0;
 	public static int reverseNumber2(int input){

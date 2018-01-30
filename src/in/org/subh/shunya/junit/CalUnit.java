@@ -16,7 +16,7 @@ public class CalUnit {
 	 static Calculator cl = null;
 	 
 	 @Before
-	 public void setUpObject(){
+	 public void setUpObject(){		//used to create all the bobject
 		 
 		 cl = new Calculator();
 	 }

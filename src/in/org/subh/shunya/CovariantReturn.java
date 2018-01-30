@@ -1,26 +1,39 @@
 package in.org.subh.shunya;
 
-class WildAnimal {
-	public String willYouBite() {
+interface WildAnimal {
+	/*public String willYouBite() {
 		return "Yes";
-	}
+	}*/
+	
+	public String willYouBite() ;
+	
 }
 
-class Lion extends WildAnimal {
+class Lion implements WildAnimal {
 	public String whoAreYou() {
 		return "Lion";
 	}
+
+	@Override
+	public String willYouBite() {
+		return "No I will hunt";
+	}
 }
 
-class BengalTiger extends WildAnimal {
+class BengalTiger implements WildAnimal {
 	public String whoAreYou() {
 		return "Bengal Tiger";
+	}
+
+	@Override
+	public String willYouBite() {
+		return "No I will eat";
 	}
 }
 
 class Zoo {
 	WildAnimal getWildAnimal() {
-		return new WildAnimal();
+		return new Lion();
 	}
 }
 

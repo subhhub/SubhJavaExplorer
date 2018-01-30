@@ -27,9 +27,14 @@ public class StringOperations {
 		System.out.println(x);*/
 		
 //		StringConstantPool();
-		
 //		StringConstantPool2();
-		InternExample();
+//		InternExample();
+		
+		//Remove All Vowels From String Using replaceAll() Method 
+		String inputString = "gotthejob";
+        String newInputString = inputString.replaceAll("[AEIOUaeiou]", "");
+        System.out.println("The string without vowels...");
+        System.out.println(newInputString);
 	}
 	
 	static void StringConstantPool(){

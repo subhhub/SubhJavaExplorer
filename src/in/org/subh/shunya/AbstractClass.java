@@ -11,6 +11,11 @@ public class AbstractClass {
 abstract class AbsClass {
 	abstract void soundOfAnimal(); // It is just an idea
 	abstract void m1();
+//	void m2();			//CE: change to abstract
+	
+//	abstract final void print1();	//CE:
+//	final void print2();	//CE:
+//	public abstract static void print3();	//CE: The abstract method print3 in type AbsClass can only set a visibility modifier, one of public or protected
 }
 
 

@@ -63,6 +63,14 @@ class CommonTestA{
 	private void privateOverrideMethod() {
 		System.out.println("Class X");
 	}
+	
+	void compileTimeExecption(){
+		
+	}
+	
+	void uncheckedToChecked()throws IndexOutOfBoundsException{
+		
+	}
 }
 
 /*abstract class CommonTestB extends CommonTestA{
@@ -74,10 +82,18 @@ class CommonTestB extends CommonTestA{
 	
 	int x = 20;
 	
+	/*void uncheckedToChecked()throws ClassNotFoundException{
+		throw new ClassNotFoundException();
+	}*/
 	
 	void show1(){		//	cann't override private method
 		System.out.println("CommonTestB show1 ");
 	}
+	
+	/*@Override
+	void compileTimeExecption() throws IOException {		//CE
+		
+	}*/
 	
 	/*void show2(){
 		System.out.println("CommonTestB show2");
@@ -97,7 +113,7 @@ class CommonTestB extends CommonTestA{
 	}
 	
 	@Override
-	public void show5(int a)throws RuntimeException {
+	public void show5(int a)throws RuntimeException {		//Unchecked brother exception can be thrown
 		System.out.println(" Child VarArg show5 ");
 	}
 	
