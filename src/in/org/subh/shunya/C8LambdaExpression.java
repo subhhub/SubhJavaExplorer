@@ -34,27 +34,29 @@ public class C8LambdaExpression {
 		/*Drawable d2 = () -> { 
 			System.out.println("with lambda Drawing " + width);
 		};
-		d2.draw();
+		d2.draw();*/
 		
+		// with lambda arguments
 //		DrawableArg d3 = (name) -> {
-		DrawableArg d3 = name -> {
+		/*DrawableArg d3 = name -> {
 			System.out.println("Argument Lambda Expression "+ name);
 		};
-		d3.draw("subh");
+		d3.draw("subh");*/
 		
-        // Multiple parameters in lambda expression  
-        Addable ad1=(a,b)->(a+b);  
-        System.out.println(ad1.add(10,20));  
+        // Multiple parameters in lambda expression  with single expression 
+//        Addable ad1=(a,b)->(a+b);  
+//        System.out.println(ad1.add(10,20));  
           
         // Multiple parameters with data type in lambda expression  
-        Addable ad2=(int a,int b)->(a+b);  
-        System.out.println(ad2.add(100,200));  
+//        Addable ad2=(int a,int b)->(a+b);  
+//        System.out.println(ad2.add(100,200));  
         
      // Lambda expression with return keyword.    
-        Addable ad3=(int a,int b)->{  
-                            return (a+b);   
+        /*Addable ad3=(int a,int b)->{ 
+        					int c = a + b;
+                            return c;   
                             };  
-        System.out.println(ad3.add(100,200));  */
+        System.out.println(ad3.add(100,200));*/
         
         //Lambda Expression Example: Foreach Loop
         List<String> list=new ArrayList<String>();  
@@ -62,10 +64,14 @@ public class C8LambdaExpression {
         list.add("mayank");  
         list.add("irfan");  
         list.add("jai");  
-          
-        /*list.forEach(  
+
+       for(String s : list){
+    	   System.out.println(s);
+       }
+        
+        list.forEach(  
             (n)->System.out.println(n)  
-        );*/  
+        );
 
 	}
 }

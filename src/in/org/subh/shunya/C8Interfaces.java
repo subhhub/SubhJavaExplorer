@@ -12,32 +12,39 @@ public class C8Interfaces {
 		
 //		DiamondI1 di1 = new DiamondC();
 		DiamondI2 di1 = new DiamondC();
+//		DiamondC di1 = new DiamondC();
 		
 		String str = di1.show2();
-		logger.info(str);
+//		logger.info(str);
 		
-		DiamondF df = new DiamondF();
-		String str2 = df.show4();
-		logger.info(str2);
+//		DiamondF df = new DiamondF();
+//		String str2 = df.show4();
+//		logger.info(str2);
 		
-		logger.info(DefineMethodInterace.devideSep());
+//		logger.info(DefineMethodInterace.devideSep());
 		
 	}
-	
 }
 
-@FunctionalInterface			//Functional Interface will work with one abstract and one defined method
+@FunctionalInterface			//Functional Interface will work with one abstract
 interface DefineMethodInterace{  
 	
     int addSep(int a,int b); 
     
-    default String subSep(){
+    default String subSep(){					//multiple default methods are allowed with different names
     	return "Defined method inside a interface example";
     }
     
-    static String devideSep(){
+    static String devideSep(){					//multiple static methods are allowed with different names
     	return "static method inside a interface example";
     }
+}
+
+class DMIImpl implements DefineMethodInterace{
+	@Override
+	public int addSep(int a, int b) {
+		return 10;
+	}
 }
 
 //==========================Ambiguity in Java8 ==============================
@@ -49,6 +56,10 @@ interface DiamondI1{
 }
 interface DiamondI2{
 	
+	/*default String show(){	//Duplicate default methods named show with the parameters () and () are inherited from the types DiamondI2 and DiamondI1
+    	return "Defined method inside a DiamondI2 interface";
+    }*/
+	
 	default String show2(){
     	return "Defined method inside a DiamondI2 interface";
     }
@@ -56,7 +67,8 @@ interface DiamondI2{
 class DiamondC implements DiamondI1, DiamondI2{	//If we have define different method name then no need to redefine in class
 
 	/*@Override
-	public String show() {
+	public String show() {		//to remove the ambibuity we can override the show method if both interface has same method.
+//		DiamondI2.super.show();			//It will call the DiamondI2 show method and ignore the other stuff.
 		return "method inside a DiamondC class";
 	}*/
 	
@@ -85,7 +97,7 @@ interface DiamondI4{
     }
 }
 class DiamondE{
-	public String show4(){						//must be public if it has interited along with interface
+	public String show4(){						//must be public if it has interited along with interface becuase interface has default access specifier pubilc and abstract
     	return "method inside a DiamondE class";
     }
 }

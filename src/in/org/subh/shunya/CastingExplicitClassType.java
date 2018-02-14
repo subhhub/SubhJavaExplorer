@@ -14,11 +14,19 @@ public class CastingExplicitClassType {
 	public static void main(String[] args) {
 		
 		ParentEx p = new ChildEx();
-		p.disp();
-//		ChildEx c = p;				//cannot convert from ParentEx to ChildEx
+//		p.disp();
+//		ChildEx c = p;				//CE: cannot convert from ParentEx to ChildEx
 		ChildEx c = (ChildEx) p;
-		c.disp();
-
+//		c.disp();
+		
+		ParentEx p1 = new ParentEx();
+//		ChildEx c1 = (ChildEx) p1;		//RE: java.lang.ClassCastException:ParentEx cannot be cast ChildEx
+//		c1.disp();		
+		
+		ChildEx c3 = new ChildEx();
+		ParentEx p3 = c3;
+		c3.disp();			//Child disp called
+		p3.disp();			//Child disp called
 	}
 }
 
@@ -29,6 +37,16 @@ class ParentEx {
 }
 
 class ChildEx extends ParentEx {
+	public void dispChild() {
+		System.out.println("Child dispChild called");
+	}
+	
+	public void disp() {
+		System.out.println("Child disp called");
+	}
+}
+
+class Child1Ex {
 	public void dispChild() {
 		System.out.println("Child dispChild called");
 	}

@@ -27,3 +27,31 @@
 2017-12-15 23:15:56 INFO  CollectionHashMapCustomeKey:90 - 1 1 1 1
 2017-12-15 23:15:56 INFO  CollectionHashMapCustomeKey:93 - Retrive existing value=> A_TWO
 2017-12-15 23:15:56 INFO  CollectionHashMapCustomeKey:98 - false Reference
+2018-02-11 21:25:03 INFO  C8Interfaces:11 - Hello Java 8 Interface
+2018-02-11 21:25:03 INFO  C8Interfaces:17 - method inside a DiamondC class
+2018-02-11 21:25:19 INFO  C8Interfaces:11 - Hello Java 8 Interface
+2018-02-11 21:25:19 INFO  C8Interfaces:18 - method inside a DiamondC class
+2018-02-11 21:26:31 INFO  C8Interfaces:11 - Hello Java 8 Interface
+2018-02-11 21:26:31 INFO  C8Interfaces:18 - Defined method inside a DiamondI1 interface
+2018-02-11 21:26:51 INFO  C8Interfaces:11 - Hello Java 8 Interface
+2018-02-11 21:26:51 INFO  C8Interfaces:18 - Defined method inside a DiamondI1 interface
+2018-02-11 21:27:24 INFO  C8Interfaces:11 - Hello Java 8 Interface
+2018-02-11 21:27:24 INFO  C8Interfaces:18 - Defined method inside a DiamondI1 interface
+2018-02-11 23:24:22 INFO  C8MethodReference:? - 2
+2018-02-11 23:24:22 INFO  C8MethodReference:? - 4
+2018-02-11 23:24:22 INFO  C8MethodReference:? - 0
+2018-02-11 23:24:22 INFO  C8MethodReference:? - 6
+2018-02-11 23:24:22 INFO  C8MethodReference:? - 7
+2018-02-11 23:24:22 INFO  C8MethodReference:? - 6
+2018-02-11 23:24:22 INFO  C8MethodReference:? - 1
+2018-02-11 23:24:22 INFO  C8MethodReference:? - 3
+2018-02-11 23:24:22 INFO  C8MethodReference:? - 65
+2018-02-11 23:24:22 INFO  C8MethodReference:? - 8
+2018-02-14 12:32:23 INFO  C8Interfaces:11 - Hello Java 8 Interface
+2018-02-14 12:32:46 INFO  C8Interfaces:11 - Hello Java 8 Interface
+2018-02-14 13:48:04 INFO  C8InterfacesWithMain:11 - Hello Java 8 Interface
+2018-02-14 13:48:22 INFO  C8InterfacesWithMain:11 - Main method inside Java 8 Interface
+2018-02-14 14:15:25 INFO  C8RunnableImplementation:13 - Hello Java 8 Interface
+2018-02-14 14:17:04 INFO  C8RunnableImplementation:13 - Hello Java 8 Interface
+2018-02-14 14:19:25 INFO  C8RunnableImplementation:13 - Hello Java 8 Interface
+2018-02-14 14:19:31 INFO  C8RunnableImplementation:13 - Hello Java 8 Interface

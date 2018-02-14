@@ -32,7 +32,11 @@ public class ComparableComparator {
 		al.add(new Student(105, "Jai", 21));
 		
 		System.out.println("Default Sorting...");
-		Collections.sort(al);		//if it is not implementing comparable then it will throw RE commparable required
+//		Collections.sort(al);		//if it is not implementing comparable then it will throw RE commparable required
+//		Collections.reverse(al);	//pass comparator
+		Comparator  c = Collections.reverseOrder( new AgeComparator());	//pass comparator
+		Collections.sort(al, c);
+		
 		Iterator itr = al.iterator();
 		while (itr.hasNext()) {
 			Student stn = (Student) itr.next();
@@ -78,7 +82,7 @@ class Student implements Comparable {
 			return 1;
 		else 
 			return -1;*/
-		return s1.name.compareTo(name);
+		return name.compareTo(s1.name);
 	}
 }
 

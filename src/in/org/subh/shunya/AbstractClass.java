@@ -1,5 +1,7 @@
 package in.org.subh.shunya;
 
+import java.io.IOException;
+
 public class AbstractClass {
 
 	public static void main(String[] args) {
@@ -8,6 +10,14 @@ public class AbstractClass {
 	
 }
 
+abstract interface AbsInter{
+	abstract void methodA()throws IOException;
+}
+interface AbsInterSub extends AbsInter{
+	abstract void methodA()throws IOException;
+}
+
+
 abstract class AbsClass {
 	abstract void soundOfAnimal(); // It is just an idea
 	abstract void m1();
@@ -15,10 +25,9 @@ abstract class AbsClass {
 	
 //	abstract final void print1();	//CE:
 //	final void print2();	//CE:
+//	abstract static void print2();	//CE:
 //	public abstract static void print3();	//CE: The abstract method print3 in type AbsClass can only set a visibility modifier, one of public or protected
 }
-
-
 
 abstract class AbsClassA extends AbsClass {
 	void soundOfAnimal() {

@@ -4,6 +4,10 @@ public class StringOperations {
 
 	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 
+		StringBuffer sb = new StringBuffer();
+		System.out.println(sb.capacity());		//default 16
+		System.out.println(sb.length());		//default 0; Returns the length of this character sequence. The length is the number of 16-bit chars in the sequence.
+		
 		//StringBuilder sbd = new StringBuilder("subh");
 		
 //		String s = new String ("Hello");

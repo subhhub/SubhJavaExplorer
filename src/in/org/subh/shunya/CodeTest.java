@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.regex.Pattern;
 
 import in.org.subh.shunya.one.CodeTest1;
 
@@ -76,6 +77,21 @@ public class CodeTest {
 		new CodeTest().rec(strrec);
 		System.out.println(rStr);
 }
+	
+	void regularExpressionTest(){
+		
+		String str = "214072222227871 0 222208C0F226F8B1F4AE26883BE76BDE 100 ";
+//		String str = "214072222227871 0; 222208C0F226F8B1F4AE26883BE76BDE 100";
+//		Pattern ptn = Pattern.compile("[ ]{1,}");	//check only single sapces
+		Pattern ptn = Pattern.compile("^.*(^[ ]{1,}|[ ]{2,}|[\t]{1,}).*");	//check starting space, double sapces and single tab in whole string from starting to end
+//		Pattern ptn = Pattern.compile("\\w[\\s]{2,}\\w");	//check only double sapces
+//		Pattern ptn = Pattern.compile("\\w[ ]{2,}\\w");	//check only double spaces
+//		Pattern ptn = Pattern.compile(";");
+		boolean mtch = ptn.matcher(str).find();
+		System.out.println("bool3 "+mtch);
+		
+	}
+	
 	static String rStr = "";
 	String rec(String str){
 		

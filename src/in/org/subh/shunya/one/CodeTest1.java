@@ -1,10 +1,17 @@
 package in.org.subh.shunya.one;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.StringTokenizer;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.TreeSet;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class CodeTest1 {
 	
@@ -34,29 +41,76 @@ public class CodeTest1 {
 			System.out.print(vl[i]+" ");
 	}
 	
-	
-	
 	public static void main(String[] args) throws IOException {
 		
-		String str = "214072222227871 0 222208C0F226F8B1F4AE26883BE76BDE 100 ";
-//		String str = "214072222227871 0; 222208C0F226F8B1F4AE26883BE76BDE 100";
-//		Pattern ptn = Pattern.compile("[ ]{1,}");
-		Pattern ptn = Pattern.compile("\\w[\\s]{2,}\\w");	//\w[ ]{2,}\w
-//		Pattern ptn = Pattern.compile("\\w[ ]{2,}\\w");	//\w[ ]{2,}\w
-//		Pattern ptn = Pattern.compile(";");
-		boolean mtch = ptn.matcher(str).find();
-		System.out.println("bool3 "+mtch);
-		 
+		
+		/*int ary[] = {1,2,3,2,4,5,6,3,3,2,7,8,4,9};
+		Integer ary1 = new Integer(ary1);
+		List<Integer> ls = new ArrayList<Integer>(Arrays.asList(ary1));
+		Stream<Integer> filtered = ls.stream();*/
+		
+		/*Map<Integer, Integer> ls2 = new HashMap<>();
+		int cnt = 0;
+		int ary[] = {1,2,3,2,4,5,6,3,3,2,7,8,4,9};
+		for(int i = 0; i<ary.length; i++){
+			cnt = 0;
+			for(int j = 0; j<ary.length; j++){
+				
+				if(ary[i]==ary[j]){
+					cnt++;
+					
+					if(cnt == 2){
+						ls2.put(ary[i], cnt); 
+					}
+					else if(cnt == 3){
+						ls2.put(ary[i], cnt);
+					}
+				}
+				
+			}
+		}
+		
+		for(Map.Entry<Integer, Integer> k : ls2.entrySet()){
+			System.out.println(" K "+k.getKey() + " "+k.getValue());
+		}*/
+		
+		
+		Map<Integer, Integer> ls2 = new HashMap<>();
+//		Map<Integer, Integer> ls2 = new ConcurrentHashMap<>();
+		
+		
+		int cnt = 1;
+		int ary[] = {1,2,3,2,4,5,6,3,3,2,7,8,4,9};
+		
+		for(int i = 0; i<ary.length; i++){
+			
+			if(ls2.containsKey(ary[i])){
+				int vl = ls2.get(ary[i]);
+				vl++;
+				ls2.put(ary[i], vl);
+			}	
+			else{
+				ls2.put(ary[i], cnt);
+			}
+		}
+		
+//		Map<Integer, Integer> ls3 = Collections.synchronizedMap(ls2);
+		
+		/*for(Map.Entry<Integer, Integer> k : ls2.entrySet()){
+			if(k.getValue() != 2 && k.getValue() != 3)
+				ls2.remove(k.getKey());
+		}*/
+		
+		/*for(Map.Entry<Integer, Integer> k : ls2.entrySet()){
+			if(k.getValue() == 2 || k.getValue() == 3)
+				System.out.println(" K "+k.getKey() + " "+k.getValue());
+		}*/
+		
+		/*for(Map.Entry<Integer, Integer> k : ls2.entrySet()){
+			System.out.println(" K "+k.getKey() + " "+k.getValue());
+		}*/
+
+		
 	}  
-	
-/*	public String replaceWithPattern(String str,String replace){
-        
-        Pattern ptn = Pattern.compile("\\s+");
-        boolean mtch = ptn.matcher(str).find();
-        
-        System.out.println(" mtch "+mtch);
-        
-        return mtch.replaceAll(replace);
-    }*/
 }
 

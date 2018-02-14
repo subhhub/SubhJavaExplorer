@@ -14,9 +14,11 @@ public class CollectionHashMapCustomeKey2 {
 		EmployeeHE ehe1 = new EmployeeHE(101, "emp1");
 		EmployeeHE ehe2 = new EmployeeHE(102, "emp3");
 		EmployeeHE ehe3 = new EmployeeHE(103, "emp2");
+		EmployeeHE ehe4 = new EmployeeHE(103, "emp2");
 		System.out.println(ehe1.hashCode());
 		System.out.println(ehe2.hashCode());
 		System.out.println(ehe3.hashCode());
+		System.out.println(ehe4.hashCode());
 		
 		System.out.println(ehe1.equals(ehe2));
 		
@@ -24,7 +26,9 @@ public class CollectionHashMapCustomeKey2 {
 		mp.put(ehe1, "value1");
 		mp.put(ehe2, "value2");
 		mp.put(ehe3, "value3");
+		mp.put(ehe4, "value4");
 		
+		System.out.println(" mp "+mp.size());	//if hashcode and equals not implemented unique size 
 		
 		
 		for(Map.Entry e: mp.entrySet())
@@ -83,15 +87,15 @@ class EmployeeHE {
 		return true;
 	}*/
 	
-	@Override
+	/*@Override
 	public boolean equals(Object obj) {			//equals Condition 2
 		return true;
-	}
+	}*/
 	
-	/*@Override
+	@Override
 	public boolean equals(Object obj) {			//equals Condition 3
 		return false;
-	}*/
+	}
 	
 
 	@Override

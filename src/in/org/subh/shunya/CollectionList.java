@@ -7,12 +7,21 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Vector;
 
 public class CollectionList {
 	public static void main(String[] args) {
 		System.out.println("List Test");
 
+		List als = new ArrayList();
+		System.out.println(als.size());		//default size 0; Returns the number of elements in this list. If this list contains more than Integer.MAX_VALUE elements, returns Integer.MAX_VALUE.
+		
+		List alss = new LinkedList();	
+		System.out.println(alss.size());
+		
 		// Vector v = new Vector();
+		
+		
 		
 		String vl[] = {"subh", "poo", "pri"};
 		
@@ -25,6 +34,7 @@ public class CollectionList {
 		al.add("Ravi");
 		al.add("Ajay");
 		al.add(3, "Priya");
+		al.set(1, "jiji");		//update
 		System.out.println(al.size());		//size 8 count everything
 		System.out.println("arraylist: " + al);
 		
