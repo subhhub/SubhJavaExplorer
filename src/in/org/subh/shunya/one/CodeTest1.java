@@ -40,7 +40,7 @@ public class CodeTest1 {
 
 		String str = "Java program, spring program, android program";
 		
-		System.out.println("Added");
+		System.out.println("Added ");
 		
 		
 	}  

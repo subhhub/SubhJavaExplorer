@@ -3,6 +3,7 @@ package in.org.subh.shunya;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -80,10 +81,12 @@ public class CollectionList {
 		Enumeration vn = v.elements();*/
 		
 		
-		joinArrayList();
+//		joinArrayList();
 //		iteratorAndListIterator();
 //		iteratorAndListIteratorModified();
 //		methodArrays();
+		
+		code1();
 		
 	}
 	
@@ -171,7 +174,7 @@ public class CollectionList {
         
         //Joining list1 and list2
 //        list1.addAll(list2);
-        list2.addAll(list1);
+        list2.addAll(list1);		//add one list to another
         
         //Inserting all elements of list2 at index 2 of list1
 //        list1.addAll(2, list2);
@@ -190,5 +193,22 @@ public class CollectionList {
         System.out.println(ls);
 	}
 	
+	static void code1(){
+		Integer ary1[] = new Integer[]{2,4,5,3,9,5,7,3,78};
+		Integer ary2[] = new Integer[]{20,4,50,3,9,5,70,3,78};
+		
+		List<Integer> ls = new ArrayList(Arrays.asList(ary1));
+		List<Integer> ls2 = new ArrayList(Arrays.asList(ary2));
+		
+		ls2.addAll(ls);
+		System.out.println(ls);
+		System.out.println(ls2);
+		
+		HashSet hs = new HashSet(ls2);
+		System.out.println(hs);
+		
+		List<Integer> ls3 = new ArrayList(hs);
+		System.out.println("ls3>>>>>>>>>>>>>>. "+ls3);
+	}
 	
 }

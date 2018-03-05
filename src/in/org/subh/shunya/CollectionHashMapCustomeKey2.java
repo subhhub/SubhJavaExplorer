@@ -21,6 +21,7 @@ public class CollectionHashMapCustomeKey2 {
 		System.out.println(ehe4.hashCode());
 		
 		System.out.println(ehe1.equals(ehe2));
+		System.out.println(ehe3.equals(ehe4));
 		
 		HashMap<EmployeeHE, String> mp = new HashMap<>();
 		mp.put(ehe1, "value1");
@@ -92,10 +93,10 @@ class EmployeeHE {
 		return true;
 	}*/
 	
-	@Override
+	/*@Override
 	public boolean equals(Object obj) {			//equals Condition 3
 		return false;
-	}
+	}*/
 	
 
 	@Override

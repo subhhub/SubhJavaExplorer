@@ -16,7 +16,7 @@ public class ObjectCreationType {
 		ObjectCreationType object= (ObjectCreationType) Class.forName("in.org.subh.shunya.ObjectCreationType").newInstance();
 		
 		new ObjectCreationType().newInstanceDefaultConstructor();
-		new ObjectCreationType().newInstanceArgConstructor();
+//		new ObjectCreationType().newInstanceArgConstructor();
 	
 //		NoClassDefFoundError d;
 		
