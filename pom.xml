@@ -44,6 +44,12 @@
 		    <artifactId>jsch</artifactId>
 		    <version>0.1.54</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/dom4j/dom4j -->
+		<dependency>
+		    <groupId>dom4j</groupId>
+		    <artifactId>dom4j</artifactId>
+		    <version>1.6.1</version>
+		</dependency>
 		
 	  
 	</dependencies>

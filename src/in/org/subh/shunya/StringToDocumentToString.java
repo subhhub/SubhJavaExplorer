@@ -14,12 +14,13 @@ import javax.xml.transform.stream.StreamResult;
 
 
 import org.w3c.dom.Document;
+import org.dom4j.DocumentException;
 import org.dom4j.io.SAXReader;
 import org.xml.sax.InputSource;
 
 public class StringToDocumentToString {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws DocumentException {
         final String xmlStr = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"+
                                 "<Emp id=\"1\"><name>Pankaj</name><age>25</age>\n"+
                                 "<role>Developer</role><gen>Male</gen></Emp>";
@@ -31,7 +32,7 @@ public class StringToDocumentToString {
         
         String newNode = "<node>value</node>"; // Convert this to XML
         SAXReader reader = new SAXReader();
-        Document newNodeDocument = reader.read(new StringReader(newNode));
+        Document newNodeDocument = (Document) reader.read(new StringReader(newNode));
         
         
        /* String newNode = "<node>value</node>"; // Convert this to XML
