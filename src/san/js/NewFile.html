@@ -1,0 +1,98 @@
+<html>
+<body>
+<h2>JavaScript Array Sort</h2>
+<p>The sort() method sorts an array alphabetically.</p>
+<button onclick="myFunction()">Try it</button>
+<button onclick="myFunctionJson()">Try Json it</button>
+<button onclick="myFunctionDate()">Try Date it</button>
+<button onclick="myFunctionDateArray()">Try Date Array it</button>
+<p id="demo"></p>
+<script>
+
+var someArray1 = [
+	{
+		"id": 10,
+		"name": "baj",
+		"date": "2010/01/19",
+		"age": "46"
+	},
+	{
+		"id": 1,
+		"name": "raj",
+		"date": "2010/02/12",
+		"age": "46"
+	},
+	{
+		"id": 2,
+		"name": "aj1",
+		"date": "2018/01/3",
+		"age": "47"
+	},
+	{
+		"id": 3,
+		"name": "zaj2",
+		"date": "2013/01/14",
+		"age": "48"
+	}
+]
+
+function custom_sort_date(a, b) {
+    return new Date(a.date).getTime() - new Date(b.date).getTime();
+}
+
+function custom_sort(a, b) {
+    return new Date(a.lastUpdated).getTime() - new Date(b.lastUpdated).getTime();
+}
+var your_array = [
+    {lastUpdated: "2010/11/01"},
+    {lastUpdated: "2009/01/13"},
+    {lastUpdated: "2009/12/11"},
+    {lastUpdated: "2011/07/01"}
+];
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits;
+
+function myFunction() {
+    fruits.sort();
+    document.getElementById("demo").innerHTML = fruits;
+}
+
+function myFunctionDate() {
+	your_array.sort(custom_sort);
+	
+	for (var item in your_array) {  
+	    document.write("<br>" + your_array[item].lastUpdated);  
+	}
+}
+
+function myFunctionDateArray() {
+	someArray1.sort(custom_sort_date);
+	
+	for (var item in someArray1) {  
+	    document.write("<br>" + someArray1[item].date +",  "+someArray1[item].id +",  "+someArray1[item].name);  
+	}
+}
+
+function myFunctionJson() {
+	someArray1.sort(sortByProperty('name'));
+	document.getElementById("demo").innerHTML = someArray1;
+	
+	for (var item in someArray1) {  
+	    document.write("<br>" + someArray1[item].name +"  "+someArray1[item].id);  
+	} 
+}
+
+var sortByProperty = function (property) {
+
+    return function (x, y) {
+
+        return ((x[property] === y[property]) ? 0 : ((x[property] > y[property]) ? 1 : -1));
+
+    }
+
+}
+</script>
+
+</body>
+</html>
