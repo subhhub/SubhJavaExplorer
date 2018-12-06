@@ -1,6 +1,6 @@
 package org.subh.shunya;
 
-import in.org.subh.shunya.one.CodeTest1;
+import org.subh.shunya.one.CodeTest1;
 
 public class OverloadTest {
 

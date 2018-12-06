@@ -1,6 +1,6 @@
 package org.subh.shunya;
 
-import in.org.subh.shunya.one.CommonClass;
+import org.subh.shunya.one.CommonClass;
 
 public class DesignPatternSingeltonCounter {
 

@@ -11,7 +11,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
-import in.org.subh.shunya.one.CodeTest1;
+import org.subh.shunya.one.CodeTest1;
 
 public class CodeTest {
 	
