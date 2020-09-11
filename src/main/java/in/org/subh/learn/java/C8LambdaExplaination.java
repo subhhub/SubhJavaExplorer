@@ -69,7 +69,7 @@ public class C8LambdaExplaination {
 				
 //		values.forEach(i -> System.out.println(i));
 		
-		//using treditional Anonymous class implementation
+		//using traditional Anonymous class implementation
 		/*Consumer<Integer> cn = new Consumer<Integer>() {
 			@Override
 			public void accept(Integer t) {

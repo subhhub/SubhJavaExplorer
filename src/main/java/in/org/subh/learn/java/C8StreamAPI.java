@@ -104,8 +104,86 @@ public class C8StreamAPI {
 		Double ar[] = {2.4, 6.7, 6.1, 3.65, 8.0};
 		Stream<Double> stm1 = Stream.of(ar);
 		stm1.forEach(System.out::println);
+		
+		//Concatenate/join collection values using Stream
+		String cnctVal = list != null ? list.stream().collect(Collectors.joining(",")) : "";
+		System.out.println(cnctVal);
+		
+		
+		List<Product> productsList = new ArrayList<Product>();  
+        productsList.add(new Product(1,"HP1","HP Laptop",25000f));  
+        productsList.add(new Product(2,"Del1","Dell Laptop",30000f));  
+        productsList.add(new Product(3,"Len1","Lenevo Laptop",28000f));  
+        productsList.add(new Product(4,"Sony1","Sony Laptop",28000f));  
+        productsList.add(new Product(5,"App1","Apple Laptop",90000f));
+        
+        //single condition filter
+        Product match = productsList.parallelStream().filter(prd -> prd.getPrice() == 30000f).findAny().get();
+        System.out.println(match.name);
+        
+        String respResult = "Sony1, HP1";
+        List<String> vll = new ArrayList<>();
+        
+        //forEach multi condition traditional way
+        for(Product gmm : productsList) {
+        	if(respResult.contains(gmm.code)) {
+        		vll.add(gmm.name);
+        	}
+        }
+        System.out.println("Traditional "+String.join(",", vll));
+        vll.clear();
+        
+        //forEach multi conditional 
+        productsList.forEach(
+        			v -> {
+        				if(respResult.contains(v.code)) {
+        	        		vll.add(v.name);
+        	        	}
+        			}
+        		);
+        System.out.println("Multiline "+String.join(",", vll));
+        vll.clear();
+        
+        //forEach multi conditional single line 
+        productsList.stream().filter(v -> Arrays.asList(respResult.split(",")).contains(v.code)).forEach(v -> vll.add(v.name));
+        System.out.println("Single Line "+String.join(",", vll));
+        
+        //Convert list of objects from list of Strings 
+        List<String> listString = new ArrayList<>();	//traditional way
+        for (Product prd : productsList) {
+        	listString.add(prd.name);
+        }
+        listString.clear();
+        //Java 8 way convert Object collection to String collection
+        listString = productsList.stream().map(Product::getName).collect(Collectors.toList());
+        System.out.println(listString);
 	}
 }
+
+class Product{  
+    int id;  
+    String code;  
+    String name;  
+    public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	float price;  
+    public float getPrice() {
+		return price;
+	}
+	public void setPrice(float price) {
+		this.price = price;
+	}
+	public Product(int id, String code, String name, float price) {  
+        this.id = id;  
+        this.code = code;  
+        this.name = name;  
+        this.price = price;  
+    }  
+}  
 
 
 
