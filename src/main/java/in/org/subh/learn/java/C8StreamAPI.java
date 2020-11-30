@@ -2,6 +2,7 @@ package in.org.subh.learn.java;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
@@ -154,9 +155,43 @@ public class C8StreamAPI {
         	listString.add(prd.name);
         }
         listString.clear();
+        
         //Java 8 way convert Object collection to String collection
         listString = productsList.stream().map(Product::getName).collect(Collectors.toList());
         System.out.println(listString);
+        
+        //Sort in Custom Object in single line
+        List<String> sgm = productsList.stream().map(Product::getCode).sorted().collect(Collectors.toList());
+        System.out.println(sgm);
+        
+        //Sort Complete Custom Object
+        List<Product> prd = productsList.stream().sorted(Comparator.comparing(Product::getCode)).collect(Collectors.toList());
+        System.out.println(prd);
+
+        //Sort Complete Custom Object Reverse
+        List<Product> prd1 = productsList.stream().sorted(Comparator.comparing(Product::getCode).reversed()).collect(Collectors.toList());
+        System.out.println(prd1);
+        
+        //String operations
+        List<String> list1=new ArrayList<>();  
+        list1.add("name ");  
+        list1.add("day");  
+        list1.add("value ");  
+        list1.add("leaf");
+        list1 = list1.stream().map(String::trim).collect(Collectors.toList());
+        System.out.println(list1);
+        
+        //TODO
+//        List<Users> result = jdbcTemplate.query(sql, new BeanPropertyRowMapper(Users.class));
+//		return result.stream().map(sc->{
+//			GenericModel genericModel = new GenericModel();
+//			// Id
+//			genericModel.setId(sc.getUserID());
+//			// Name
+//			genericModel.setName(sc.getFullname());
+//			
+//			return genericModel;
+//		}).collect(Collectors.toList());
 	}
 }
 
@@ -169,6 +204,12 @@ class Product{
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
 	}
 	float price;  
     public float getPrice() {
@@ -183,6 +224,11 @@ class Product{
         this.name = name;  
         this.price = price;  
     }  
+	
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", code=" + code + ", name=" + name + ", price=" + price + "]";
+	}
 }  
 
 
