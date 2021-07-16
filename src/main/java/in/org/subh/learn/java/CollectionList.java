@@ -44,13 +44,13 @@ public class CollectionList {
 		for(Object v : al){
 			System.out.println("v "+v);
 		}
-			
 		
 		Collection c = al;
 		List cl = new ArrayList(19);
 //		cl.add("pry");
 //		System.out.println(cl);
-
+		
+//		==============================================================================================
 		List al2 = new LinkedList();// creating linkedlist
 		al2.add("James");
 		al2.add(null);
@@ -67,6 +67,10 @@ public class CollectionList {
 //		 System.out.println("linkedlist: " + al2);
 //		 System.out.println(al2.get(3));
 		
+//		===========================Java 8 forEach=======================================================
+//		al2.forEach(val -> System.out.println(val));
+		
+//		==============================================================================================
 		/*ArrayList<String> al3=new ArrayList<String>();  
 		al3.add("Amit");  
 		al3.add("Vijay");  
@@ -74,19 +78,21 @@ public class CollectionList {
 		al3.add(1,"Sachin");  
 		System.out.println("element at 2nd position: "+al3.get(0)); */  
 	
+//		==============================================================================================
 		/*Vector v = new Vector();
 		v.add("subh");
 		v.add("cisco");
 		v.add("got");
 		Enumeration vn = v.elements();*/
 		
-		
+//		==============================================================================================
 //		joinArrayList();
 //		iteratorAndListIterator();
 //		iteratorAndListIteratorModified();
 //		methodArrays();
 		
-		code1();
+//		==============================================================================================
+//		code1();
 		
 	}
 	

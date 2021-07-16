@@ -1,5 +1,8 @@
 package in.org.subh.learn.java;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AggregationComposition {
 
 	public static void main(String[] args) {
@@ -32,6 +35,8 @@ class EmployeeAgg {
 
 	int id;
 	String name;
+	
+	//employee can have address or not
 	AddressAgg address;
 
 	public EmployeeAgg(int id, String name, AddressAgg address) {
@@ -46,48 +51,32 @@ class EmployeeAgg {
 	}
 }
 
-class JobComposition {
-	private String role;
-	private long salary;
-	private int id;
+//============================Example of Aggregation================================================
+//Team
+class Team {
+	// players can be 0 or more
+	private List players;
 
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-
-	public long getSalary() {
-		return salary;
-	}
-
-	public void setSalary(long salary) {
-		this.salary = salary;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+	public Team() {
+		players = new ArrayList();
 	}
 }
 
-class PersonComposition {
+//Player Object
+class Player {
+}
 
-	// composition has-a relationship
-	private JobComposition job;
+//============================Example of Composition================================================
+//Car must have Engine
+class Car {
+	// engine is a mandatory part of the car
+	private final Engine engine;
 
-	public PersonComposition() {
-		this.job = new JobComposition();
-		job.setSalary(1000L);
-	}
-
-	public long getSalary() {
-		return job.getSalary();
+	public Car() {
+		engine = new Engine();
 	}
 }
 
+//Engine Object
+class Engine {
+}

@@ -22,7 +22,7 @@ public class C8LambdaExplaination {
 
 	public static void main(String[] args) {
 
-//		LA la =  new CLA();		//interface impleneation with class
+//		LA la =  new CLA();		//interface implentation with class
 //		la.show();
 
 		/*LA la2 = new LA(){			//interface implementation Anonymous inner class
@@ -33,19 +33,19 @@ public class C8LambdaExplaination {
 		};
 		la2.show();*/
 
-//		LA la2 = () -> { System.out.println("heelolo");};	//interface implementation using Lembda Expresion with no arguments
+//		LA la2 = () -> { System.out.println("heelolo");};	//interface implementation using Lembda Expression with no arguments
 //		la2.show();
 
 		// or if we have only liner code then no need to write curly bracket
-//		LA la3 = (int i ) -> System.out.println("heelolo");	//interface implementation using Lembda Expresion without curly braces for single statment
+//		LA la3 = (int i ) -> System.out.println("heelolo");	//interface implementation using Lembda Expression without curly braces for single statment
 //		la3.show(6);
 
 		// or
-//		LA la4 = ( i ) -> System.out.println("heelolo " + i);	//interface implementation using Lembda Expresion without data type and curly braces
+//		LA la4 = ( i ) -> System.out.println("heelolo " + i);	//interface implementation using Lembda Expression without data type and curly braces
 //		la4.show(6);
 
 		// or 
-		LA la5 = i -> System.out.println("heelolo " + i);	//interface implementation using Lembda Expresion with single argument
+		LA la5 = i -> System.out.println("heelolo " + i);	//interface implementation using Lembda Expression with single argument
 		la5.show(6);
 		
 //		forEachConsumerMethodExplained();
@@ -79,7 +79,7 @@ public class C8LambdaExplaination {
 		cn.accept(10);*/
 //		values.forEach(cn);
 		
-		//or using lembd expression evalution step by step
+		//or using lembd expression evaluation step by step
 //		Consumer<Integer> cn = (Integer t)  -> { System.out.println(t); }; 	//Implementation 1
 //		Consumer<Integer> cn = (Integer t)  -> System.out.println(t);		 	//Implementation 2
 //		Consumer<Integer> cn = (t)  -> System.out.println(t);				 	//Implementation 3

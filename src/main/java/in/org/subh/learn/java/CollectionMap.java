@@ -56,24 +56,49 @@ public class CollectionMap {
 		  hm1.put(102,"Rahul2");  
 		  System.out.println(hm1);*/
 		  
-		  /*Iterator entries = tm.entrySet().iterator();
-		  while (entries.hasNext()) {
-		      Map.Entry entry = (Map.Entry) entries.next();
-		      Object key = entry.getKey();
-		      String value = (String)entry.getValue();
-		      System.out.println("Key = " + key + ", Value = " + value);
-		  }*/
+//		=========================Map Traversing Traditional===========================================================
+//		Option A
+//		Set keyVal = tm.entrySet();		//key values
+//		Iterator entries = keyVal.iterator();
+//		Option B
+//		  Set<Map.Entry<?, ?>> keyVal = tm.entrySet();		//key values
+//		  Iterator<Entry<?, ?>> entries = keyVal.iterator();
+//		  while (entries.hasNext()) {
+//		      Map.Entry entry = (Map.Entry)entries.next();	//applicable for A
+//		      Entry<?, ?> entry = entries.next();			//application for B
+//		      Object key = entry.getKey();
+//		      Object value = entry.getValue();
+//		      System.out.println("Key = " + key + ", Value = " + value);
+//		  }
 		  
-		  /*Iterator cl = hm.values().iterator();
-		  while (cl.hasNext()) {
-		      System.out.println("Value = " + cl.next());
-		  }*/
+//		  Collection col = hm.values();				//collection of values
+//		  Iterator itr = col.iterator();
+//		  while (itr.hasNext()) {
+//		      System.out.println("Value = " + itr.next());
+//		  }
 		  
-		  /*Iterator ky = hm.keySet().iterator();
-		  while (ky.hasNext()) {
-		      System.out.println("Value = " + ky.next());
-		  }*/
+//		  Set st = hm.keySet();				//set of keys
+//		  Iterator ky = st.iterator();
+//		  while (ky.hasNext()) {
+//		      System.out.println("Value = " + ky.next());
+//		  }
 		
+//		=========================Map Traversing Java 8===========================================================
+		Map<String, Integer> map = new HashMap<>();
+		map.put("web", 1024);
+		map.put("database", 2048);
+		map.put("static", 5120);
+		
+		//Only Values
+		map.values().forEach(vl -> System.out.println(vl));
+		//Only Keys
+		map.keySet().forEach(vl -> System.out.println(vl));
+		//Only Keys and Values
+		map.forEach((ky, val) -> System.out.println(ky +" "+val));  
+		//Only Keys and Values using explicit entrySet
+		map.entrySet().forEach(val -> System.out.println(val.getKey() +" "+val.getValue()));  
+		
+//		==========================================================================================================
 		/*Map<Integer, String> map = new HashMap<>();
 		map.put(1, "Jan");
 		map.put(2, "Feb");
@@ -113,7 +138,7 @@ public class CollectionMap {
         System.out.println("--------------------------");
          
         //Getting Collection of values
-        Collection<String> values = studentPerformanceMap.values();
+		Collection<String> values = studentPerformanceMap.values();
         //Creating an ArrayList of values
         ArrayList<String> listOfValues = new ArrayList<String>(values);
          

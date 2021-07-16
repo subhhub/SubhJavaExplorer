@@ -2,7 +2,11 @@ package in.org.subh.learn.java;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.apache.log4j.Logger;
 
@@ -73,10 +77,10 @@ public class C8MethodReference {
 		
 		StringParser sp = new StringParser();
 		
-//		mp.print(str, ((String s)  -> {return StringParser.convert(s);}));	//Lembda Expression Implementation 1
-//		mp.print(str, ((String s)  -> StringParser.convert(s)));	//Lembda Expression Implementation 2
-//		mp.print(str, (s  -> StringParser.convert(s)));	//Lembda Expression Implementation 3
-		mp.print(str, (s  -> sp.convert(s)));	//Lembda Expression Implementation 4 if method is not static then use object
+//		mp.print(str, ((String s)  -> {return StringParser.convert(s);}));	//Lambda Expression Static Implementation 1
+//		mp.print(str, ((String s)  -> StringParser.convert(s)));	//Lambda Expression Static Implementation 2
+//		mp.print(str, (s  -> StringParser.convert(s)));	//Lambda Expression Static Implementation 3
+//		mp.print(str, (s  -> sp.convert(s)));	//Lambda Expression Implementation 4 if method is not static then use object
 		
 		
 //		mp.print(str, (StringParser::convert));	//Method Reference Implementation 1
@@ -85,7 +89,61 @@ public class C8MethodReference {
 		
 //		staticMethodRef();
 //		instanceMethodRef();
-		instanceMethodRef2();
+//		instanceMethodRef2();
+		methodReferenceType();
+	}
+	
+	static void methodReferenceType() {
+
+		List<Integer> integers = Arrays.asList(1,12,433,5);
+		
+//		1. Method reference to static method – Class::staticMethodName
+		Optional<Integer> max = integers.stream().reduce( Math::max ); 
+//		max.ifPresent(value -> System.out.println(value)); 
+		
+		
+//		2. Method reference to instance method from instance – ClassInstance::instanceMethodName        
+		Optional<Integer> max2 = integers.stream().reduce( Math::max ); 
+//		max2.ifPresent( System.out::println ); 
+		
+//		3. Method reference to instance method from class type – Class::instanceMethodName
+		List<String> strings = Arrays.asList("how", "to", "do", "in", "java", "dot", "com");
+		 
+		List<String> sorted = strings.stream()
+				.sorted((s1, s2) -> s1.compareTo(s2))
+				.collect(Collectors.toList());
+//		System.out.println("sorted=>"+sorted);
+		 
+		List<String> sortedAlt = strings.stream()
+		        .sorted(String::compareTo)
+		        .collect(Collectors.toList());
+//		System.out.println("sortedAlt=>"+sortedAlt);
+		
+//		4. Reference to constructor – Class::new
+		List<Integer> intgrs = IntStream.range(1, 100)
+                .boxed()
+                .collect(Collectors.toCollection(ArrayList::new ));
+//		System.out.println("intgrs=>"+intgrs);
+ 
+		Optional<Integer> max4 = intgrs.stream().reduce(Math::max); 
+//		max4.ifPresent(System.out::println); 
+		
+		
+		//Testing Collectors.toCollection() method
+		/*
+		 * toList(), and toSet() methods of the Collectors class. Both methods return a
+		 * Collector to collect the input elements into a new list or a Set, but doesn’t
+		 * offer any guarantee on the type of the Collection returned. For instance,
+		 * Collectors.toList() method can return an ArrayList or a LinkedList or any
+		 * other implementation of the List interface.
+		 * 
+		 * To get the desired Collection, we can use the toCollection() method provided by the Collectors class.
+		 */
+		List<Integer> aryLst = new LinkedList<>();
+		List<Integer> rngVal = IntStream.range(1, 100)
+                .boxed()
+                .collect(Collectors.toCollection(()->aryLst));
+		System.out.println("toCollection=>"+rngVal);
 	}
 	
 	/**
@@ -95,7 +153,7 @@ public class C8MethodReference {
 	static void staticMethodRef(){  
 
 		//No Arguments
-		Sayable sy = new Sayable(){
+		Sayablee sy = new Sayablee(){
 			@Override
 			public void say() {
 				saySomething();
@@ -103,15 +161,15 @@ public class C8MethodReference {
 		};
 //		sy.say();
 		
-		Sayable sy1 = () -> { saySomething();};		//Lembda Expression
+		Sayablee sy1 = () -> { saySomething();};		//Lambda Expression
 //		sy1.say();
 		
-		Sayable sy2 = C8MethodReference::saySomething;	//Method Reference
+		Sayablee sy2 = C8MethodReference::saySomething;	//Method Reference
 		sy2.say();
 		
 		
 		//Arguments
-		/*Sayable sy11 = new Sayable(){
+		/*Sayablee sy11 = new Sayablee(){
 			@Override
 			public void say() {
 				saySomething();
@@ -119,10 +177,10 @@ public class C8MethodReference {
 		};
 //		sy11.say();
 		
-		Sayable sy12 = () -> { saySomething();};		//Lembda Expression
+		Sayablee sy12 = () -> { saySomething();};		//Lambda Expression
 //		sy12.say();
 		
-		Sayable sy21 = C8MethodReference::saySomething;	//Method Reference
+		Sayablee sy21 = C8MethodReference::saySomething;	//Method Reference
 		sy21.say();*/
 	}
 	
@@ -130,7 +188,7 @@ public class C8MethodReference {
 
 		C8MethodReference mr = new C8MethodReference();
 		
-		Sayable sy = new Sayable(){
+		Sayablee sy = new Sayablee(){
 			@Override
 			public void say() {
 				mr.saySomethingInst();
@@ -138,10 +196,10 @@ public class C8MethodReference {
 		};
 //		sy.say();
 		
-		Sayable sy1 = () -> { mr.saySomethingInst();};		//Lembda Expression
+		Sayablee sy1 = () -> { mr.saySomethingInst();};		//Lambda Expression
 //		sy1.say();
 		
-		Sayable sy2 = mr::saySomethingInst;	//Method Reference
+		Sayablee sy2 = mr::saySomethingInst;	//Method Reference
 		sy2.say();
 	}
 	
@@ -192,6 +250,6 @@ public class C8MethodReference {
 }
 
 
-interface Sayable{  
+interface Sayablee{  
     void say();  
 }  

@@ -8,13 +8,13 @@ public class C8Interfaces {
 	
 	public static void main(String[] args) {
 		
-		logger.info("Hello Java 8 Interface");
+		System.out.println("Hello Java 8 Interface");
 		
 //		DiamondI1 di1 = new DiamondC();
 		DiamondI2 di1 = new DiamondC();
 //		DiamondC di1 = new DiamondC();
 		
-		String str = di1.show2();
+//		String str = di1.show2();
 //		logger.info(str);
 		
 //		DiamondF df = new DiamondF();
@@ -23,6 +23,7 @@ public class C8Interfaces {
 		
 //		logger.info(DefineMethodInterace.devideSep());
 		
+		DefineMethodInterace dmi  = (a, b) -> (a + b);
 	}
 }
 
@@ -34,10 +35,24 @@ interface DefineMethodInterace{
     default String subSep(){					//multiple default methods are allowed with different names
     	return "Defined method inside a interface example";
     }
+
+    default String subSep2(){					//multiple default methods are allowed with different names
+    	devideSep2();						//static method can be invoked within static and default methods
+    	return "Defined method 2 inside a interface example";
+    }
     
     static String devideSep(){					//multiple static methods are allowed with different names
     	return "static method inside a interface example";
     }
+
+    static String devideSep2(){					//multiple static methods are allowed with different names
+    	return "static method 2 inside a interface example";
+    }
+    
+    // It can contain any number of Object class methods.  
+    int hashCode();  
+    String toString();  
+    boolean equals(Object obj);
 }
 
 class DMIImpl implements DefineMethodInterace{
@@ -67,14 +82,14 @@ interface DiamondI2{
 class DiamondC implements DiamondI1, DiamondI2{	//If we have define different method name then no need to redefine in class
 
 	/*@Override
-	public String show() {		//to remove the ambibuity we can override the show method if both interface has same method.
+	public String show() {		//to remove the ambiguity we can override the show method if both interface has same method.
 //		DiamondI2.super.show();			//It will call the DiamondI2 show method and ignore the other stuff.
 		return "method inside a DiamondC class";
 	}*/
 	
 	
 }
-//==========================End Ambiguity in Java8 ==============================
+//=================================================================================
 
 interface DiamondI3{
 	
@@ -87,9 +102,9 @@ class DiamondD implements DiamondI3{ //If we have default method inside interfac
 }
 
 //==========================Third Rule in Java8 ==============================
-/*If a class has interited class and interface and both are having the same method 
+/*If a class has inherited class and interface and both are having the same method 
  * then it will give the priority to normal method. 
- * Because normal method has highest priority comapre to default method.
+ * Because normal method has highest priority compare to default method.
 */
 interface DiamondI4{
 	default String show4(){
@@ -97,7 +112,7 @@ interface DiamondI4{
     }
 }
 class DiamondE{
-	public String show4(){						//must be public if it has interited along with interface becuase interface has default access specifier pubilc and abstract
+	public String show4(){						//must be public if it has inherited along with interface because interface has default access specifier public and abstract
     	return "method inside a DiamondE class";
     }
 }
@@ -113,3 +128,13 @@ interface DiamondI5{
 		return true;
 	}*/
 }
+
+//==========================Invalid Functional Interface Java8 ==============================
+interface sayable{  
+    void say(String msg);   // abstract method  
+}  
+@FunctionalInterface  
+//interface Doable extends sayable{	// Invalid '@FunctionalInterface' annotation; Doable is not a functional interface  
+interface Doable{  
+    void doIt();  
+}  

@@ -2,11 +2,13 @@ package in.org.subh.learn.java;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Optional;
-import java.util.function.Function;
-import java.util.function.Predicate;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -33,84 +35,84 @@ public class C8StreamAPI {
 			System.out.println(s);
 		}*/
         
+		//Basic element traversing
 //      list.forEach((n)->System.out.println(n) );
-		list.stream()
-		.filter(n -> n.startsWith("a"));
-//		.forEach(n -> System.out.println(n));
 		
-		List<Integer> values = new ArrayList(Arrays.asList(2, 4, 0, 6, 7, 6, 1, 3, 65, 8));
+		//traversing with filter
+//		list.stream().filter(n -> n.startsWith("a")).forEach(n -> System.out.println(n));
 		
-		//Basice element traversing
-//		values.stream()
-//		.forEach(n -> System.out.println(n));
+//		==================================================================================================
+		List<Integer> values = new ArrayList<>(Arrays.asList(2, 4, 0, 6, 7, 6, 1, 3, 65, 8));
 		
 		//filter even or odd
-//		values.stream()
-//		.filter(n -> n%2==0)				
+//		values.stream().filter(n -> n%2==0)				
 //		.forEach(n -> System.out.println(n));		//FI(Consumer) is being used
 		
-		//Copy even number to new collection
-		List ls2 = values.stream()
+//		=====================================Copy even number to new collection=================================
+		List<Integer> ls2 = values.stream()
 				.filter(n -> n%2==0)			//FI(Predict) is being used 
 				.collect(Collectors.toList());
 //		System.out.println(ls2);
 		
-		
-		//Mapping each value with some value
-		List ls3 = values.stream()
-				.map(n -> n*2)				//FI(Fuction) is being used 
+//		==================================Mapping each value with some value==================================
+		List<Integer> ls3 = values.stream()
+				.map(n -> n*2)				//FI(Function) is being used 
 				.collect(Collectors.toList());
 //		System.out.println(ls3);
 		
-		//count
+//		==================================count==============================================================
 		long ls4 = values.stream()
 				.filter(n -> n%2==0).count();
 //		System.out.println(ls4);
 		
-		//sorting DNSO
+//		===================================sorting DNSO========================================================
 //		values.stream().sorted().forEach(n -> System.out.println(n));
 //		System.out.println(ls4);
 		
-		//sorting Customised based on comparator
+//		=====================================sorting Customized based on comparator=============================
 //		values.stream()
 //		.sorted((i1, i2) -> -i1.compareTo(i2))
 //		.forEach(n -> System.out.println(n));
 //		System.out.println(ls4);
 		
-		//find minimum value
+//		=====================================find minimum value===================================================
 //		Optional<Integer> mn = values.stream().min((i1, i2) -> -i1.compareTo(i2));
 //		System.out.println(mn.get());
 		int mn1 = values.stream().min((i1, i2) -> i1.compareTo(i2)).get();
 //		System.out.println(mn1);
 		
-		//find max value
+//		======================================find max value====================================================
 		int mx = values.stream().max((i1, i2) -> i1.compareTo(i2)).get();
 //		System.out.println(mx);
 		
-		//copy stream elements to Array Approach 1
+//		=============================copy stream elements to Array Approach 1==============================
 		Object ary[] = values.stream().toArray();
 //		System.out.println(ary[0]);
 
-		//copy stream elements to Array Approach 2 (Need to understand)
+//		=============================copy stream elements to Array Approach 2 (Need to understand)===========
 //		Integer ary1[] = values.stream().toArray(Integer[]::new);
 		Integer ary1[] = values.stream().toArray(n -> new Integer[n]);
 //		for(Object it : ary1)
 //			System.out.println(it);
 	
-		//apply stream concept for any group of values
-		Stream<Integer> stm = Stream.of(9,99,999,9999,10);
-//		stm.forEach(System.out::println);
-		
-		//apply stream concept for any array
-		Double ar[] = {2.4, 6.7, 6.1, 3.65, 8.0};
-		Stream<Double> stm1 = Stream.of(ar);
-		stm1.forEach(System.out::println);
-		
-		//Concatenate/join collection values using Stream
+//		==============================Concatenate/join collection values using Stream=====================
 		String cnctVal = list != null ? list.stream().collect(Collectors.joining(",")) : "";
-		System.out.println(cnctVal);
+//		System.out.println(cnctVal);
 		
+//		=============================Convert Array to Stream============================================
+        String[] array = {"a", "b", "c", "d", "e"};
+        
+        Stream<String> stm =  Arrays.stream(array);
+//        stm.forEach(val -> System.out.println(val));
+       
+		Stream<String> stm1 = Stream.of(array);
+//		stm1.forEach(System.out::println);
 		
+		//apply stream concept for any group of values
+		Stream<Integer> stm2 = Stream.of(9,99,999,9999,10);
+//		stm2.forEach(System.out::println);
+		
+//		==================================================================================================
 		List<Product> productsList = new ArrayList<Product>();  
         productsList.add(new Product(1,"HP1","HP Laptop",25000f));  
         productsList.add(new Product(2,"Del1","Dell Laptop",30000f));  
@@ -120,21 +122,22 @@ public class C8StreamAPI {
         
         //single condition filter
         Product match = productsList.parallelStream().filter(prd -> prd.getPrice() == 30000f).findAny().get();
-        System.out.println(match.name);
+//        System.out.println(match.name);
         
         String respResult = "Sony1, HP1";
         List<String> vll = new ArrayList<>();
         
-        //forEach multi condition traditional way
+//		=============================forEach multi conditional================================================
+      // traditional way
         for(Product gmm : productsList) {
         	if(respResult.contains(gmm.code)) {
         		vll.add(gmm.name);
         	}
         }
-        System.out.println("Traditional "+String.join(",", vll));
+//        System.out.println("Traditional "+String.join(",", vll));
         vll.clear();
         
-        //forEach multi conditional 
+        //Stream way
         productsList.forEach(
         			v -> {
         				if(respResult.contains(v.code)) {
@@ -142,36 +145,53 @@ public class C8StreamAPI {
         	        	}
         			}
         		);
-        System.out.println("Multiline "+String.join(",", vll));
+//        System.out.println("Multiline "+String.join(",", vll));
         vll.clear();
         
-        //forEach multi conditional single line 
+//		==============================forEach multi conditional single line==================================
         productsList.stream().filter(v -> Arrays.asList(respResult.split(",")).contains(v.code)).forEach(v -> vll.add(v.name));
-        System.out.println("Single Line "+String.join(",", vll));
+//        System.out.println("Single Line "+String.join(",", vll));
         
-        //Convert list of objects from list of Strings 
-        List<String> listString = new ArrayList<>();	//traditional way
+//		==============================Convert list of objects from list of Strings==============================
+      //traditional way
+        List<String> listString = new ArrayList<>();	
         for (Product prd : productsList) {
         	listString.add(prd.name);
         }
         listString.clear();
         
-        //Java 8 way convert Object collection to String collection
+        //Java 8 way
         listString = productsList.stream().map(Product::getName).collect(Collectors.toList());
-        System.out.println(listString);
+//        System.out.println(listString);
         
-        //Sort in Custom Object in single line
+//		=============================Sort in Custom Object in single line==========================================
         List<String> sgm = productsList.stream().map(Product::getCode).sorted().collect(Collectors.toList());
-        System.out.println(sgm);
+//        System.out.println("Sort in Custom Object in single line==>"+sgm);
         
-        //Sort Complete Custom Object
+//		============================Sort Complete Custom Object=====================================================
         List<Product> prd = productsList.stream().sorted(Comparator.comparing(Product::getCode)).collect(Collectors.toList());
-        System.out.println(prd);
+//        System.out.println(prd);
 
-        //Sort Complete Custom Object Reverse
+//		===========================Sort Complete Custom Object Reverse=================================================
         List<Product> prd1 = productsList.stream().sorted(Comparator.comparing(Product::getCode).reversed()).collect(Collectors.toList());
-        System.out.println(prd1);
+//        System.out.println(prd1);
         
+//      =============================Debug Java 8 Stream Pipeline - peek() method==========================================
+//		List<String> bug = productsList.stream()
+//				.map(Product::getCode)
+//				.peek(vl->System.out.println(vl))		//debug; peek is used for debugging
+//				.sorted()
+//				.peek(vl->System.out.println(vl))		//debug; peek is used for debugging
+//				.collect(Collectors.toList());
+		
+		List<String> rslt = Stream.of("EURO/INR", "USD/AUD", "USD/GBP", "USD/EURO")
+				.filter(e -> e.length() > 7)
+//				.peek(e -> System.out.println("Filtered value: " + e))		//debug; peek is used for debugging
+				.map(String::toLowerCase) 
+//				.peek(e -> System.out.println("Mapped value: " + e))		//debug; peek is used for debugging
+				.collect(Collectors.toList());
+        
+//		==================================================================================================
         //String operations
         List<String> list1=new ArrayList<>();  
         list1.add("name ");  
@@ -179,19 +199,20 @@ public class C8StreamAPI {
         list1.add("value ");  
         list1.add("leaf");
         list1 = list1.stream().map(String::trim).collect(Collectors.toList());
-        System.out.println(list1);
+//        System.out.println(list1);
         
-        //TODO
-//        List<Users> result = jdbcTemplate.query(sql, new BeanPropertyRowMapper(Users.class));
-//		return result.stream().map(sc->{
-//			GenericModel genericModel = new GenericModel();
-//			// Id
-//			genericModel.setId(sc.getUserID());
-//			// Name
-//			genericModel.setName(sc.getFullname());
-//			
-//			return genericModel;
-//		}).collect(Collectors.toList());
+//		==================================Iterate a Map Using Stream=======================================================
+        Map<String, Integer> map = new HashMap<>();
+        map.put("web", 1024);
+        map.put("database", 2048);
+        map.put("static", 5120);
+        
+        //Only Values
+        map.values().stream().forEach(vl -> System.out.println(vl));
+        //Only Keys
+        map.keySet().stream().forEach(vl -> System.out.println(vl));
+        //Only Keys and Values
+        map.entrySet().stream().forEach(vl -> System.out.println(vl.getKey() +" "+ vl.getValue()));
 	}
 }
 

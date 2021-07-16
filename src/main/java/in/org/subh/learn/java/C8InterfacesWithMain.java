@@ -5,7 +5,7 @@ import org.apache.log4j.Logger;
 /**
  * @author esubkew
  * 
- * java 8 onward we can run main method inside interface becuase interface allows static methods
+ * java 8 onward we can run main method inside interface because interface allows static methods
  *
  */
 public interface C8InterfacesWithMain {
